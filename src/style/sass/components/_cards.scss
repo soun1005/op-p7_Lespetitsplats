@@ -11,24 +11,46 @@
     margin-bottom: 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    h1 {
-        font-size: 22px;
-    }
     
     &-img-top {
         background-color: rgb(187, 187, 187);
-        height: 14rem;
+        height: 11rem;
     }
     &-body {
-        height: 15rem;
+        height: 13rem;
         &-head {
             height: 3rem;
-            span {
-                display: block;
-                // margin-left: 5rem;
-                // margin-bottom: 5px;
-            }
+            margin-bottom: 10px;
+            // span {
+            //     display: block;
+            //     // margin-left: 5rem;
+            //     // margin-bottom: 5px;
+            // }
         }
+        h1 {
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+    }
+    &__dscr {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.2;
+        li {
+            list-style: none;
+        }
+    }
 
+
+    .ingredients__container {
+        width: 45%;
+        span {
+            font-size: 12px;
+        }
+       
+    }
+    .recipe-content {
+        width: 50%;
+        font-size: 13px;
     }
 }

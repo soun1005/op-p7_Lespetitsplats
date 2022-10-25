@@ -34,33 +34,54 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
         const cardTitle = document.createElement('h1');
         cardTitle.classList.add('card-title');
         cardTitle.textContent = name;
+
+
         const cardClockIcon = document.createElement('span');
-        cardClockIcon.classList.add('fa-regular');
-        cardClockIcon.classList.add('fa-clock')
+        cardClockIcon.classList.add('fa-regular', 'fa-clock');
         cardClockIcon.textContent = time;
-        const cardTime = document.createElement('h2');
-        cardTime.classList.add('card-subtitle');
 
         /***************************************
         card body part = ingredients and recipe
         ****************************************/
-        // ingredients
-        const ingredientsWrap = document.createElement('div');
-        ingredientsWrap.classList.add('ingredient__wrap');
-        ingredientsWrap.classList.add('d-xl-flex');
-        ingredientsWrap.classList.add('justify-content-around');
-        
-        const ingredientElem = document.createElement('span');
-        // ingredientElem.textContent = `${ingredient}: ${quantity}${unit}`;
 
-        ingredients.forEach(element => {
+        const cardDscr = document.createElement('div');
+        cardDscr.classList.add('card__dscr');
+        const ingredientContainer = document.createElement('ul');
+        ingredientContainer.classList.add('ingredients__container');
+        cardDscr.append(ingredientContainer);
+
+        // ingredients
+        data.ingredients.forEach( element => {
           const { ingredient, quantity, unit } = element;
-          return  ingredientElem.textContent = `${ingredient}: ${quantity || ''}${unit || ''}`;
-        });
+
+          let ingredientsWrap = document.createElement('li');
+          ingredientsWrap.classList.add('ingredient__wrap');
+          let ingredientSpan = document.createElement('span');
+          ingredientSpan.textContent = ingredient;
+          ingredientsWrap.append(ingredientSpan);
+          ingredientContainer.append(ingredientsWrap);
+          ingredientsWrap.append(ingredientSpan);
+        
+          if (!(quantity === undefined)) {
+              let quantitySpan = document.createElement('span')
+              quantitySpan.textContent = ': ' + quantity
+              ingredientsWrap.append(quantitySpan);
+          }
+  
+          if (!(unit === undefined)) {
+              let unitSpan = document.createElement('span')
+              unitSpan.textContent = ' ' + unit;
+              ingredientsWrap.append(unitSpan);
+          } 
+
+          
+      }
+      );
 
 
         // recipe
         const recipeContent = document.createElement('div');
+        recipeContent.classList.add('recipe-content');
         const recipeParagraphe = document.createElement('p');
         recipeParagraphe.innerText = description;
 
@@ -71,15 +92,13 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
         cardWrap.append(cardBody);
 
         cardBody.append(cardHead);
-        cardBody.append(ingredientsWrap);
-        cardBody.append(recipeContent)
+        cardBody.append(cardDscr);
+        cardDscr.append(recipeContent)
 
         cardHead.append(cardTitle);
         cardHead.append(cardClockIcon);
-        cardHead.append(cardTime);
-
-        ingredientsWrap.append(ingredientElem);
-        ingredientsWrap.append(recipeContent);
+        
+  
         recipeContent.append(recipeParagraphe);
   
       return (cardWrap);

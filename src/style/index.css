@@ -121,23 +121,45 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card h1 {
-  font-size: 22px;
-}
 .card-img-top {
   background-color: rgb(187, 187, 187);
-  height: 14rem;
+  height: 11rem;
 }
 .card-body {
-  height: 15rem;
+  height: 13rem;
 }
 .card-body-head {
   height: 3rem;
+  margin-bottom: 10px;
 }
-.card-body-head span {
-  display: block;
+.card-body h1 {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.card__dscr {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.2;
+}
+.card__dscr li {
+  list-style: none;
+}
+.card .ingredients__container {
+  width: 45%;
+}
+.card .ingredients__container span {
+  font-size: 12px;
+}
+.card .recipe-content {
+  width: 50%;
+  font-size: 13px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
 }
