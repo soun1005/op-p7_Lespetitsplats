@@ -1,0 +1,75 @@
+.filters {
+    display: flex;
+// filter wraps 
+&-wrap {
+    margin-right: 1rem;
+    width: 10rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+// btn
+    .btn {
+        z-index: 1000;
+        width: 9.5rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border: none;
+        border-radius: 5px;
+        i {
+            margin-left: 10px;
+        }
+    }
+    &__ingredients-btn {
+        background-color:#3282F7;
+        color: $c-white;
+        &:hover {
+            background-color:#3282F7;
+            color: $c-white;
+        }
+    }
+    &__appareils-btn {
+        background-color:#68D9A4;
+        color: $c-white;
+        &:hover {
+            background-color:#68D9A4;
+            color: $c-white;
+        }
+    }
+    &__utensils-btn {
+        background-color:#ED6454;
+        color: $c-white;
+        &:hover {
+            background-color:#ED6454;
+            color: $c-white;
+        }
+    }
+
+
+// input
+    &__input {
+        position: absolute;
+        background-color: pink;
+        width: 9.5rem;
+        height: 4rem;
+        top: 0;
+        z-index: -100;
+        border-radius: 5px;
+    }
+
+    .ingredient-input {
+        background-color:#3282F7;
+        color: $c-white;
+    }
+
+    .appareils-input {
+        background-color:#68D9A4;
+        color: $c-white;
+    }
+    .utensils-input {
+        background-color:#ED6454;
+        color: $c-white;
+    }
+}

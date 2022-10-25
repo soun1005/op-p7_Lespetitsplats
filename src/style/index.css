@@ -1,0 +1,143 @@
+.filters {
+  display: flex;
+}
+.filters-wrap {
+  margin-right: 1rem;
+  width: 10rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.filters .btn {
+  z-index: 1000;
+  width: 9.5rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  border-radius: 5px;
+}
+.filters .btn i {
+  margin-left: 10px;
+}
+.filters__ingredients-btn {
+  background-color: #3282F7;
+  color: #fff;
+}
+.filters__ingredients-btn:hover {
+  background-color: #3282F7;
+  color: #fff;
+}
+.filters__appareils-btn {
+  background-color: #68D9A4;
+  color: #fff;
+}
+.filters__appareils-btn:hover {
+  background-color: #68D9A4;
+  color: #fff;
+}
+.filters__utensils-btn {
+  background-color: #ED6454;
+  color: #fff;
+}
+.filters__utensils-btn:hover {
+  background-color: #ED6454;
+  color: #fff;
+}
+.filters__input {
+  position: absolute;
+  background-color: pink;
+  width: 9.5rem;
+  height: 4rem;
+  top: 0;
+  z-index: -100;
+  border-radius: 5px;
+}
+.filters .ingredient-input {
+  background-color: #3282F7;
+  color: #fff;
+}
+.filters .appareils-input {
+  background-color: #68D9A4;
+  color: #fff;
+}
+.filters .utensils-input {
+  background-color: #ED6454;
+  color: #fff;
+}
+
+#header {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0;
+}
+#header img {
+  max-width: 12rem;
+}
+#header .input-group {
+  position: relative;
+}
+#header #input-form {
+  border-radius: 5px;
+  margin-top: 1rem;
+  background-color: #e7e7e7;
+  height: 4rem;
+  border: none;
+}
+#header #input-form::-moz-placeholder {
+  opacity: 25%;
+  font-size: 14px;
+  margin-left: 10px;
+}
+#header #input-form:-ms-input-placeholder {
+  opacity: 25%;
+  font-size: 14px;
+  margin-left: 10px;
+}
+#header #input-form::placeholder {
+  opacity: 25%;
+  font-size: 14px;
+  margin-left: 10px;
+}
+#header #search-magnify {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.card__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-overflow: ellipsis;
+}
+
+.card {
+  width: 25rem;
+  height: 24rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card h1 {
+  font-size: 22px;
+}
+.card-img-top {
+  background-color: rgb(187, 187, 187);
+  height: 14rem;
+}
+.card-body {
+  height: 15rem;
+}
+.card-body-head {
+  height: 3rem;
+}
+.card-body-head span {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
