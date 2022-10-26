@@ -1,14 +1,14 @@
 .filters {
     display: flex;
-// filter wraps 
-&-wrap {
-    margin-right: 1rem;
-    width: 10rem;
-    position: relative;
-    margin-bottom: 2rem;
-}
+    // filter wraps 
+    &-wrap {
+        margin-right: 1rem;
+        width: 10rem;
+        position: relative;
+        margin-bottom: 2rem;
+    }
 
-// btn
+    // btn
     .btn {
         z-index: 1000;
         width: 9.5rem;
@@ -50,9 +50,9 @@
 
 // input
     &__input {
-        position: absolute;
+        display: none;
         background-color: pink;
-        width: 9.5rem;
+        width: 10rem;
         height: 4rem;
         top: 0;
         z-index: -100;
@@ -72,4 +72,13 @@
         background-color:#ED6454;
         color: $c-white;
     }
+}
+
+// display none/block control
+.btn.close {
+    display: none;
+}
+
+.filters__input.active {
+    display: block;
 }

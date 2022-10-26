@@ -108,4 +108,19 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     };
   }
 
-  export default recipeFactory;
+  function ingFilter(array){
+    function makeIngList(){
+      const ingredientListWrap = document.createElement('li');
+      ingredientListWrap.classList.add('ingredient__wrap');
+      // array 각각 엘레먼트에 리스트 만들어서 innerText를 엘레먼트로 지정
+      array.forEach(el => {
+        
+        ingredientListWrap.textContent = el;
+      })
+      return (ingredientListWrap);
+    }
+   return { makeIngList }
+  }
+
+
+  export { recipeFactory, ingFilter };
