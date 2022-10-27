@@ -40,7 +40,7 @@ async function displayFilterList(recipes) {
   ingredientContainer.classList.add('ingredient__container');
   const filterDiv = document.querySelector('.filters__ingredient');
   filterDiv.append(ingredientContainer);
-  ingredientContainer.append(ingredientList);
+  ingredientContainer.append(...ingredientList);
 }
 
   async function init() {

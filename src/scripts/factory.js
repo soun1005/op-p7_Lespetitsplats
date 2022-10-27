@@ -108,16 +108,36 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     };
   }
 
-  function ingFilter(array){
+  function ingFilter(ingredientArray){
     function makeIngList(){
-      const ingredientListWrap = document.createElement('li');
-      ingredientListWrap.classList.add('ingredient__wrap');
-      // array 각각 엘레먼트에 리스트 만들어서 innerText를 엘레먼트로 지정
-      array.forEach(el => {
-        
-        ingredientListWrap.textContent = el;
+      // const ingredients = [];
+      return ingredientArray.map(ingredient => {
+        const ingredientLi = document.createElement('li');
+        ingredientLi.innerHTML = ingredient;
+        return ingredientLi;
       })
-      return (ingredientListWrap);
+      // for (let i = 0; i < array.length; i++) {
+      
+      //   const ingredient = document.createElement('li');
+      //   ingredient.innerHTML = array[i];
+
+      //   ingredients.push(ingredient);
+      
+      // }
+      // console.log(ingredients)
+
+
+
+
+
+      // const ingredientListWrap = document.createElement('li');
+      // ingredientListWrap.classList.add('ingredient__wrap');
+      // array 각각 엘레먼트에 리스트 만들어서 innerText를 엘레먼트로 지정
+
+      // array.forEach(el => {
+      //   ingredientListWrap.textContent = el;
+      // })
+      // return (ingredients);
     }
    return { makeIngList }
   }
