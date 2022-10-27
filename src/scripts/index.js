@@ -1,5 +1,6 @@
-import { recipeFactory, ingFilter } from './factory.js';
+import { recipeFactory } from './factory.js';
 import recipes from '../data/recipes.js';
+import { displayIngList, displayApplianceList, displayUtensilList } from './filter.js';
 
 /*****************************************************
  display photographer data inside card-container
@@ -15,37 +16,13 @@ import recipes from '../data/recipes.js';
       const cardDom = card.getRecipeCardDOM();
         cardContainer.append(cardDom);
     });
-
-  
   }
-  
-async function displayFilterList(recipes) {
-  // ingredient
-  let ingredientArray = [];
-
-  // get ingredients array 
-  recipes.map(element => {
-    const ingredients = element.ingredients;
-    ingredients.map(element => {
-      const ingredientElements = element.ingredient;
-      ingredientArray.push(ingredientElements);
-    })
-  })
-  // console.log(ingredientArray);
-  const ingredientListDiv = ingFilter(ingredientArray);
-  const ingredientList = ingredientListDiv.makeIngList();
-
-
-  const ingredientContainer = document.createElement('div');
-  ingredientContainer.classList.add('ingredient__container');
-  const filterDiv = document.querySelector('.filters__ingredient');
-  filterDiv.append(ingredientContainer);
-  ingredientContainer.append(...ingredientList);
-}
 
   async function init() {
   /******* Récupère les datas********/
     displayData(recipes);
-    displayFilterList(recipes);
+    displayIngList(recipes);
+    displayApplianceList(recipes);
+    displayUtensilList(recipes);
   }
   init();

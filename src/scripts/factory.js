@@ -108,6 +108,14 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     };
   }
 
+  /********************************************** 
+  [filter list factories]
+  each function takes array of their elements
+  each elements are generated as <li> 
+  with 'map'function and 
+  the list innerHtml is each element content
+  ex) ingredient <li> contains each 'ingredient'
+  **********************************************/
   function ingFilter(ingredientArray){
     function makeIngList(){
       // const ingredients = [];
@@ -122,12 +130,8 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
       //   ingredient.innerHTML = array[i];
 
       //   ingredients.push(ingredient);
-      
       // }
       // console.log(ingredients)
-
-
-
 
 
       // const ingredientListWrap = document.createElement('li');
@@ -142,5 +146,28 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
    return { makeIngList }
   }
 
+  function applianceFilter(applianceArray){
+    function makeApplianceList(){
+      // const ingredients = [];
+      return applianceArray.map(appliance => {
+        const applianceLi = document.createElement('li');
+        applianceLi.innerHTML = appliance;
+        return applianceLi;
+      })
+    }
+   return { makeApplianceList }
+  }
 
-  export { recipeFactory, ingFilter };
+  function utensilFilter(utensilArray){
+    function makeUtensilList(){
+      // const ingredients = [];
+      return utensilArray.map(utensil => {
+        const utensilLi = document.createElement('li');
+        utensilLi.innerHTML = utensil;
+        return utensilLi;
+      })
+    }
+   return { makeUtensilList }
+  }
+
+  export { recipeFactory, ingFilter, applianceFilter, utensilFilter };
