@@ -45,19 +45,18 @@
   color: #fff;
 }
 .filters__input {
-  display: none;
-  background-color: pink;
-  width: 10rem;
+  width: 15rem;
   height: 4rem;
   top: 0;
   z-index: -100;
   border-radius: 5px;
+  border: none;
 }
 .filters .ingredient-input {
   background-color: #3282F7;
   color: #fff;
 }
-.filters .appareils-input {
+.filters .appareil-input {
   background-color: #68D9A4;
   color: #fff;
 }
@@ -71,6 +70,10 @@
 }
 
 .filters__input.active {
+  display: block;
+}
+
+.list-container.active {
   display: block;
 }
 

@@ -1,6 +1,6 @@
 import { recipeFactory } from './factory.js';
 import recipes from '../data/recipes.js';
-import { displayIngList, displayApplianceList, displayUtensilList } from './filter.js';
+import { displayIngList, displayApplianceList, displayUtensilList } from './filterList.js';
 
 /*****************************************************
  display photographer data inside card-container
