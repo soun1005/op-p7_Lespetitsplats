@@ -120,13 +120,44 @@ width: 35rem;
 
 
 // list containers
-.ingredient__container.active,
-.appareil__container.active,
-.utensil__container.active {
+.ingredient__container.active{
     display: flex;
     width: inherit;
     max-height: 20rem;
     background-color: #3282F7;
+    overflow: scroll;
+    position: absolute;
+    z-index: 9999;
+    left: 12px;
+    border-radius: 0 0 5px 5px;
+    &::-webkit-scrollbar { background: none; width: 0; }
+    span {
+        color: $c-white;
+        font-size: 12px;
+    }
+}
+.appliance__container.active{
+    display: flex;
+    width: inherit;
+    max-height: 20rem;
+    background-color: #68D9A4;
+    overflow: scroll;
+    position: absolute;
+    z-index: 9999;
+    left: 12px;
+    border-radius: 0 0 5px 5px;
+    &::-webkit-scrollbar { background: none; width: 0; }
+    span {
+        color: $c-white;
+        font-size: 12px;
+    }
+}
+
+.utensil__container.active {
+    display: flex;
+    width: inherit;
+    max-height: 20rem;
+    background-color: #ED6454;
     overflow: scroll;
     position: absolute;
     z-index: 9999;
