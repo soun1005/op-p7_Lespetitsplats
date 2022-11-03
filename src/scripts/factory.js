@@ -120,8 +120,11 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     function makeIngList(){
       // const ingredients = [];
       return ingredientArray.map(ingredient => {
-        const ingredientLi = document.createElement('li');
-        ingredientLi.innerHTML = ingredient;
+        const ingredientLi = document.createElement('div');
+        ingredientLi.classList.add('col-4', 'mb-1');
+        const ingElements = document.createElement('span');
+        ingElements.innerHTML = ingredient;
+        ingredientLi.append(ingElements);
         return ingredientLi;
       })
       // for (let i = 0; i < array.length; i++) {
@@ -150,8 +153,11 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     function makeApplianceList(){
       // const ingredients = [];
       return applianceArray.map(appliance => {
-        const applianceLi = document.createElement('li');
-        applianceLi.innerHTML = appliance;
+        const applianceLi = document.createElement('div');
+        applianceLi.classList.add('col-4', 'mb-1');
+        const appElements = document.createElement('span');
+        appElements.innerHTML = appliance;
+        applianceLi.append(appElements);
         return applianceLi;
       })
     }
@@ -162,8 +168,11 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     function makeUtensilList(){
       // const ingredients = [];
       return utensilArray.map(utensil => {
-        const utensilLi = document.createElement('li');
-        utensilLi.innerHTML = utensil;
+        const utensilLi = document.createElement('div');
+        utensilLi.classList.add('col-4', 'mb-1');
+        const utenElements = document.createElement('span');
+        utenElements.innerHTML = utensil;
+        utensilLi.append(utenElements);
         return utensilLi;
       })
     }

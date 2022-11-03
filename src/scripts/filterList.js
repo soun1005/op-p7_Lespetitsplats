@@ -23,8 +23,8 @@ async function displayIngList(recipes) {
     const ingredientList = ingredientListDiv.makeIngList();
   
     // container that contains all ingredients (=div)
-    const ingredientContainer = document.createElement('ul');
-    ingredientContainer.classList.add('ingredient__container', 'list-container');
+    const ingredientContainer = document.createElement('div');
+    ingredientContainer.classList.add('row','ingredient__container', 'list-container');
     // put the container in the 'ingredeint' div
     const filterDiv = document.querySelector('.filters__ingredient');
     filterDiv.append(ingredientContainer);
@@ -44,8 +44,8 @@ async function displayIngList(recipes) {
     const applianceListDiv = applianceFilter(applianceArray);
     const applianceList = applianceListDiv.makeApplianceList();
 
-    const applianceContainer = document.createElement('ul');
-    applianceContainer.classList.add('appliance__container', 'list-container');
+    const applianceContainer = document.createElement('div');
+    applianceContainer.classList.add('row','appliance__container', 'list-container');
     const appFilterDiv = document.querySelector('.filters__appareils');
     appFilterDiv.append(applianceContainer);
     applianceContainer.append(...applianceList);
@@ -64,8 +64,8 @@ async function displayIngList(recipes) {
     const utensilListDiv = utensilFilter(utensilArray);
     const utensilList = utensilListDiv.makeUtensilList();
 
-    const utensilContainer = document.createElement('ul');
-    utensilContainer.classList.add('utensil__container', 'list-container');
+    const utensilContainer = document.createElement('div');
+    utensilContainer.classList.add('row', 'utensil__container', 'list-container');
     const utensilFilterDiv = document.querySelector('.filters__utensils');
     utensilFilterDiv.append(utensilContainer);
     utensilContainer.append(...utensilList);

@@ -3,78 +3,101 @@
 }
 .filters-wrap {
   margin-right: 1rem;
-  width: 10rem;
   position: relative;
   margin-bottom: 2rem;
 }
-.filters .btn {
-  z-index: 1000;
-  width: 9.5rem;
-  height: 4rem;
+.filters-wrap__input {
+  top: 0;
+  border-radius: 5px;
+  border: none;
+  height: 4.5rem;
+  width: 10rem;
+  cursor: pointer;
+}
+.filters-wrap__input::-moz-placeholder {
+  color: transparent;
+}
+.filters-wrap__input:-ms-input-placeholder {
+  color: transparent;
+}
+.filters-wrap__input::placeholder {
+  color: transparent;
+}
+.filters-wrap__label-wrap {
+  position: absolute;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border: none;
-  border-radius: 5px;
-}
-.filters .btn i {
-  margin-left: 10px;
-}
-.filters__ingredients-btn {
-  background-color: #3282F7;
-  color: #fff;
-}
-.filters__ingredients-btn:hover {
-  background-color: #3282F7;
-  color: #fff;
-}
-.filters__appareils-btn {
-  background-color: #68D9A4;
-  color: #fff;
-}
-.filters__appareils-btn:hover {
-  background-color: #68D9A4;
-  color: #fff;
-}
-.filters__utensils-btn {
-  background-color: #ED6454;
-  color: #fff;
-}
-.filters__utensils-btn:hover {
-  background-color: #ED6454;
-  color: #fff;
-}
-.filters__input {
-  width: 15rem;
-  height: 4rem;
   top: 0;
-  z-index: -100;
-  border-radius: 5px;
-  border: none;
+  justify-content: space-between;
+  color: #fff;
+  height: 4.5rem;
+  padding: 21px;
+  width: 10rem;
+}
+.filters-wrap__label {
+  margin-bottom: 0;
 }
 .filters .ingredient-input {
   background-color: #3282F7;
   color: #fff;
 }
+.filters .ingredient-input.active {
+  width: inherit;
+}
 .filters .appareil-input {
   background-color: #68D9A4;
   color: #fff;
+}
+.filters .appareil-input.active {
+  width: inherit;
 }
 .filters .utensils-input {
   background-color: #ED6454;
   color: #fff;
 }
-
-.btn.close {
+.filters .utensils-input.active {
+  width: inherit;
+}
+.filters .list-container {
   display: none;
 }
 
-.filters__input.active {
-  display: block;
+.filters-wrap.active {
+  width: 35rem;
+  position: relative;
+}
+
+.filters-wrap__label.active {
+  display: none;
+}
+
+.filters-wrap__input.active::-moz-placeholder {
+  color: #fff;
+  opacity: 50%;
+}
+
+.filters-wrap__input.active:-ms-input-placeholder {
+  color: #fff;
+  opacity: 50%;
+}
+
+.filters-wrap__input.active::placeholder {
+  color: #fff;
+  opacity: 50%;
+}
+
+.ingredient-icon.active {
+  transform: rotate(180deg);
+  right: 0;
 }
 
 .list-container.active {
   display: block;
+  width: auto;
+  max-height: 26rem;
+  background-color: red;
+  overflow: scroll;
+  position: absolute;
 }
 
 #header img {

@@ -1,0 +1,103 @@
+.filters {
+    display: flex;
+    // filter wraps 
+    &-wrap {
+        margin-right: 1rem;
+        position: relative;
+        margin-bottom: 2rem;
+        &__input {
+            top: 0;
+            border-radius: 5px;
+            border: none;
+            height: 4.5rem;
+            width: 10rem;
+            cursor: pointer;
+            &::placeholder {
+                color: transparent;
+            }
+        }
+        // label wrap
+        &__label-wrap {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            top: 0;
+            justify-content: space-between;
+            color: #fff;
+            height: 4.5rem;
+            padding: 21px;
+            width: 10rem;
+        }
+        // <p> label
+        &__label {
+            margin-bottom: 0;
+        }
+
+    }
+// each input styles
+    .ingredient-input {
+        background-color:#3282F7;
+        color: $c-white;
+        &.active {
+            width: inherit;
+        }
+    }
+
+    .appareil-input {
+        background-color:#68D9A4;
+        color: $c-white;
+        &.active {
+            width: inherit;
+        }
+    }
+    .utensils-input {
+        background-color:#ED6454;
+        color: $c-white;
+        &.active {
+            width: inherit;
+        }
+    }
+
+    // elements container
+    .list-container {
+        display: none;
+    }
+}
+
+
+
+// input display control 
+// when clicked -> .active class is added.
+// 1. list -> displayed
+// 2. label -> disappear
+// 3. icon -> 180deg rotate
+// 4. input width -> auto
+
+.filters-wrap.active {
+width: 35rem;
+position: relative;
+}
+
+.filters-wrap__label.active {
+    display: none;
+}
+
+.filters-wrap__input.active::placeholder {
+    color: $c-white;
+    opacity: 50%;
+}
+
+
+.ingredient-icon.active {
+    transform: rotate(180deg);
+    right: 0;
+}
+
+.list-container.active {
+    display: block;
+    width: auto;
+    max-height: 26rem;
+    background-color: red;
+    overflow: scroll;
+    position: absolute;
+}

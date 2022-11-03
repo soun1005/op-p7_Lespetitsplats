@@ -50,40 +50,43 @@
       <!-- ingredient filter -->
       <section class="filters container-fluid">
         <div class="filters-wrap filters__ingredient">
-          <button type="text" class="btn filters__ingredients-btn">
-            Ingrédients
-            <i class="fas fa-chevron-down"></i>
-          </button>
           <input
             type="text"
-            class="filters__input ingredient-input"
+            class="filters-wrap__input ingredient-input"
+            name="ingredient-input"
             placeholder="Rechercher un ingrédient"
           />
+          <div class="filters-wrap__label-wrap">
+            <p class="filters-wrap__label ing-label">Ingrédients</p>
+            <i class="fas fa-chevron-down ingredient-icon"></i>
+          </div>
         </div>
+
         <!-- appareils filter -->
         <div class="filters-wrap filters__appareils">
-          <button type="text" class="btn filters__appareils-btn">
-            Appareils
-            <i class="fas fa-chevron-down"></i>
-          </button>
           <input
             type="text"
-            class="filters__input appareil-input"
+            class="filters-wrap__input appareil-input"
+            name="appareil-input"
             placeholder="Rechercher un appareil"
           />
+          <div class="filters-wrap__label-wrap">
+            <p class="filters-wrap__label app-label">Appareils</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
         </div>
         <!-- utensils filter -->
         <div class="filters-wrap filters__utensils">
-          <button type="text" class="btn filters__utensils-btn">
-            Ustensiles
-            <i class="fas fa-chevron-down"></i>
-          </button>
-
           <input
             type="text"
-            class="filters__input utensils-input"
+            class="filters-wrap__input utensils-input"
+            name="utensils-input"
             placeholder="Rechercher un ustensil"
           />
+          <div class="filters-wrap__label-wrap">
+            <p class="filters-wrap__label uten-label">Ustensiles</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
         </div>
       </section>
       <!-- main recipe section -->
