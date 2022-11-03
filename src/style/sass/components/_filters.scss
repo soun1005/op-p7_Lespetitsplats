@@ -69,7 +69,7 @@
             }
         }
     }
-    .utensils-input {
+    .utensil-input {
         background-color:#ED6454;
         color: $c-white;
         &.active {
@@ -106,8 +106,8 @@
 // individual filter container
 
 .filters__ingredient.active,
-.filters__appareils.active,
-.filters__utensils.active {
+.filters__appareil.active,
+.filters__utensil.active {
 width: 35rem;
 }
 
@@ -136,7 +136,7 @@ width: 35rem;
         font-size: 12px;
     }
 }
-.appliance__container.active{
+.appareil__container.active{
     display: flex;
     width: inherit;
     max-height: 20rem;

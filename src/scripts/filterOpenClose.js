@@ -7,13 +7,13 @@ const inputs = document.querySelectorAll('.filters-wrap__input');
 
 // filter elements container
 const ingContainer = document.querySelector('.filters__ingredient');
-const appContainer = document.querySelector('.filters__appareils');
-const utenContainer = document.querySelector('.filters__utensils');
+const appContainer = document.querySelector('.filters__appareil');
+const utenContainer = document.querySelector('.filters__utensil');
 
 // inputs
 const ingInput = document.querySelector('.ingredient-input');
 const appInput = document.querySelector('.appareil-input');
-const utenInput = document.querySelector('.utensils-input');
+const utenInput = document.querySelector('.utensil-input');
 
 // labels
 const ingLabel = document.querySelector('.ing-label');
@@ -33,7 +33,7 @@ const utenIcon = document.querySelector('.uten-input-icon');
 
 // list containers 
 const ingLiContainer = document.querySelector('.ingredient__container');
-const appLiContainer = document.querySelector('.appliance__container');
+const appLiContainer = document.querySelector('.appareil__container');
 const utenLiContainer = document.querySelector('.utensil__container');
 
 
@@ -71,11 +71,11 @@ function utenFilterOpen() {
 function ingFilterClose() {
     if( ingLabel.classList.contains('active')
         // ingLabel.className == 'active' 
-    || ingInput.classList.contains('active')
-    || ingIcon.classList.contains('active')
-    || ingLabel.classList.contains('active')
-    || ingLiContainer.classList.contains('active')
-    || ingContainer.classList.contains('active')
+        || ingInput.classList.contains('active')
+        || ingIcon.classList.contains('active')
+        || ingLabel.classList.contains('active')
+        || ingLiContainer.classList.contains('active')
+        || ingContainer.classList.contains('active')
     ){
         ingLabel.classList.remove('active');
         ingInput.classList.remove('active');
@@ -89,11 +89,11 @@ function ingFilterClose() {
 function appFilterClose() {
     if( appLabel.classList.contains('active')
         // ingLabel.className == 'active' 
-    || appInput.classList.contains('active')
-    || appIcon.classList.contains('active')
-    || appLabel.classList.contains('active')
-    || appLiContainer.classList.contains('active')
-    || appContainer.classList.contains('active')
+        || appInput.classList.contains('active')
+        || appIcon.classList.contains('active')
+        || appLabel.classList.contains('active')
+        || appLiContainer.classList.contains('active')
+        || appContainer.classList.contains('active')
     ){
         appLabel.classList.remove('active');
         appInput.classList.remove('active');
@@ -107,11 +107,11 @@ function appFilterClose() {
 function utenFilterClose() {
     if( utenLabel.classList.contains('active')
         // ingLabel.className == 'active' 
-    || utenInput.classList.contains('active')
-    || utenIcon.classList.contains('active')
-    || utenLabel.classList.contains('active')
-    || utenLiContainer.classList.contains('active')
-    || utenContainer.classList.contains('active')
+        || utenInput.classList.contains('active')
+        || utenIcon.classList.contains('active')
+        || utenLabel.classList.contains('active')
+        || utenLiContainer.classList.contains('active')
+        || utenContainer.classList.contains('active')
     ){
         utenLabel.classList.remove('active');
         utenInput.classList.remove('active');
@@ -137,14 +137,14 @@ window.addEventListener('click', (e)=> {
     let target = e.target; 
     // do not trigger 'close' event if it contains these class name
     if(!target.classList.contains('ing-label')
-    && !target.classList.contains('ingredient-input')
-    && !target.classList.contains('ing-input-icon')
-    && !target.classList.contains('ingredient__container')
-    && !target.classList.contains('filters__ingredient')
-    && !target.classList.contains('filters-wrap__label-wrap')
-    && !target.classList.contains('ing-label-text')
-    && !target.classList.contains('ing-label-icon')
-    && !target.classList.contains('col-4')
+        && !target.classList.contains('ingredient-input')
+        && !target.classList.contains('ing-input-icon')
+        && !target.classList.contains('ingredient__container')
+        && !target.classList.contains('filters__ingredient')
+        && !target.classList.contains('filters-wrap__label-wrap')
+        && !target.classList.contains('ing-label-text')
+        && !target.classList.contains('ing-label-icon')
+        && !target.classList.contains('col-4')
     ){   
         ingFilterClose()
         ingInput.value = '';
@@ -157,14 +157,14 @@ window.addEventListener('click', (e)=> {
     let target = e.target; 
     // do not trigger 'close' event if it contains these class name
     if(!target.classList.contains('app-label')
-    && !target.classList.contains('appareil-input')
-    && !target.classList.contains('app-input-icon')
-    && !target.classList.contains('appliance__container')
-    && !target.classList.contains('filters__appareil')
-    && !target.classList.contains('filters-wrap__label-wrap')
-    && !target.classList.contains('app-label-text')
-    && !target.classList.contains('app-label-icon')
-    && !target.classList.contains('col-4')
+        && !target.classList.contains('appareil-input')
+        && !target.classList.contains('app-input-icon')
+        && !target.classList.contains('appareil__container')
+        && !target.classList.contains('filters__appareil')
+        && !target.classList.contains('filters-wrap__label-wrap')
+        && !target.classList.contains('app-label-text')
+        && !target.classList.contains('app-label-icon')
+        && !target.classList.contains('col-4')
     ){   
         appFilterClose()
         appInput.value = '';
@@ -176,14 +176,14 @@ window.addEventListener('click', (e)=> {
     let target = e.target; 
     // do not trigger 'close' event if it contains these class name
     if(!target.classList.contains('uten-label')
-    && !target.classList.contains('appareil-input')
-    && !target.classList.contains('uten-input-icon')
-    && !target.classList.contains('utensil__container')
-    && !target.classList.contains('filters__utensils')
-    && !target.classList.contains('filters-wrap__label-wrap')
-    && !target.classList.contains('uten-label-text')
-    && !target.classList.contains('uten-label-icon')
-    && !target.classList.contains('col-4')
+        && !target.classList.contains('utensil-input')
+        && !target.classList.contains('uten-input-icon')
+        && !target.classList.contains('utensil__container')
+        && !target.classList.contains('filters__utensil')
+        && !target.classList.contains('filters-wrap__label-wrap')
+        && !target.classList.contains('uten-label-text')
+        && !target.classList.contains('uten-label-icon')
+        && !target.classList.contains('col-4')
     ){   
         utenFilterClose()
         utenInput.value = '';

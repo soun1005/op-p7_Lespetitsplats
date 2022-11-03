@@ -100,36 +100,36 @@
 .filters .appareil-input.active:focus::placeholder {
   color: transparent;
 }
-.filters .utensils-input {
+.filters .utensil-input {
   background-color: #ED6454;
   color: #fff;
 }
-.filters .utensils-input.active {
+.filters .utensil-input.active {
   width: 100%;
   border-radius: 5px 5px 0 0;
 }
-.filters .utensils-input.active::-moz-placeholder {
+.filters .utensil-input.active::-moz-placeholder {
   color: #fff;
   opacity: 0.5;
   padding-left: 1rem;
 }
-.filters .utensils-input.active:-ms-input-placeholder {
+.filters .utensil-input.active:-ms-input-placeholder {
   color: #fff;
   opacity: 0.5;
   padding-left: 1rem;
 }
-.filters .utensils-input.active::placeholder {
+.filters .utensil-input.active::placeholder {
   color: #fff;
   opacity: 0.5;
   padding-left: 1rem;
 }
-.filters .utensils-input.active:focus::-moz-placeholder {
+.filters .utensil-input.active:focus::-moz-placeholder {
   color: transparent;
 }
-.filters .utensils-input.active:focus:-ms-input-placeholder {
+.filters .utensil-input.active:focus:-ms-input-placeholder {
   color: transparent;
 }
-.filters .utensils-input.active:focus::placeholder {
+.filters .utensil-input.active:focus::placeholder {
   color: transparent;
 }
 .filters .list-container {
@@ -142,8 +142,8 @@
 }
 
 .filters__ingredient.active,
-.filters__appareils.active,
-.filters__utensils.active {
+.filters__appareil.active,
+.filters__utensil.active {
   width: 35rem;
 }
 
@@ -173,7 +173,7 @@
   font-size: 12px;
 }
 
-.appliance__container.active {
+.appareil__container.active {
   display: flex;
   width: inherit;
   max-height: 20rem;
@@ -184,11 +184,11 @@
   left: 12px;
   border-radius: 0 0 5px 5px;
 }
-.appliance__container.active::-webkit-scrollbar {
+.appareil__container.active::-webkit-scrollbar {
   background: none;
   width: 0;
 }
-.appliance__container.active span {
+.appareil__container.active span {
   color: #fff;
   font-size: 12px;
 }

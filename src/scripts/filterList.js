@@ -45,8 +45,8 @@ async function displayIngList(recipes) {
     const applianceList = applianceListDiv.makeApplianceList();
 
     const applianceContainer = document.createElement('div');
-    applianceContainer.classList.add('row','appliance__container', 'list-container');
-    const appFilterDiv = document.querySelector('.filters__appareils');
+    applianceContainer.classList.add('row','appareil__container', 'list-container');
+    const appFilterDiv = document.querySelector('.filters__appareil');
     appFilterDiv.append(applianceContainer);
     applianceContainer.append(...applianceList);
   }
@@ -66,7 +66,7 @@ async function displayIngList(recipes) {
 
     const utensilContainer = document.createElement('div');
     utensilContainer.classList.add('row', 'utensil__container', 'list-container');
-    const utensilFilterDiv = document.querySelector('.filters__utensils');
+    const utensilFilterDiv = document.querySelector('.filters__utensil');
     utensilFilterDiv.append(utensilContainer);
     utensilContainer.append(...utensilList);
   }
