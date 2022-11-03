@@ -13,6 +13,7 @@
   height: 4.5rem;
   width: 10rem;
   cursor: pointer;
+  padding-left: 1rem;
 }
 .filters-wrap__input::-moz-placeholder {
   color: transparent;
@@ -33,6 +34,7 @@
   height: 4.5rem;
   padding: 21px;
   width: 10rem;
+  cursor: pointer;
 }
 .filters-wrap__label {
   margin-bottom: 0;
@@ -42,62 +44,149 @@
   color: #fff;
 }
 .filters .ingredient-input.active {
-  width: inherit;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.filters .ingredient-input.active::-moz-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+.filters .ingredient-input.active:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+.filters .ingredient-input.active::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+.filters .ingredient-input.active:focus::-moz-placeholder {
+  color: transparent;
+}
+.filters .ingredient-input.active:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.filters .ingredient-input.active:focus::placeholder {
+  color: transparent;
 }
 .filters .appareil-input {
   background-color: #68D9A4;
   color: #fff;
 }
 .filters .appareil-input.active {
-  width: inherit;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.filters .appareil-input.active::-moz-placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .appareil-input.active:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .appareil-input.active::placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .appareil-input.active:focus::-moz-placeholder {
+  color: transparent;
+}
+.filters .appareil-input.active:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.filters .appareil-input.active:focus::placeholder {
+  color: transparent;
 }
 .filters .utensils-input {
   background-color: #ED6454;
   color: #fff;
 }
 .filters .utensils-input.active {
-  width: inherit;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.filters .utensils-input.active::-moz-placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .utensils-input.active:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .utensils-input.active::placeholder {
+  color: #fff;
+  opacity: 0.5;
+  padding-left: 1rem;
+}
+.filters .utensils-input.active:focus::-moz-placeholder {
+  color: transparent;
+}
+.filters .utensils-input.active:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.filters .utensils-input.active:focus::placeholder {
+  color: transparent;
 }
 .filters .list-container {
   display: none;
 }
-
-.filters-wrap.active {
-  width: 35rem;
-  position: relative;
-}
-
-.filters-wrap__label.active {
+.filters .ing-input-icon,
+.filters .app-input-icon,
+.filters .uten-input-icon {
   display: none;
 }
 
-.filters-wrap__input.active::-moz-placeholder {
-  color: #fff;
-  opacity: 50%;
+.filters__ingredient.active,
+.filters__appareils.active,
+.filters__utensils.active {
+  width: 35rem;
 }
 
-.filters-wrap__input.active:-ms-input-placeholder {
-  color: #fff;
-  opacity: 50%;
+.ing-label.active,
+.app-label.active,
+.uten-label.active {
+  display: none;
 }
 
-.filters-wrap__input.active::placeholder {
-  color: #fff;
-  opacity: 50%;
-}
-
-.ingredient-icon.active {
-  transform: rotate(180deg);
-  right: 0;
-}
-
-.list-container.active {
-  display: block;
-  width: auto;
-  max-height: 26rem;
-  background-color: red;
+.ingredient__container.active,
+.appareil__container.active,
+.utensil__container.active {
+  display: flex;
+  width: inherit;
+  max-height: 20rem;
+  background-color: #3282F7;
   overflow: scroll;
   position: absolute;
+  z-index: 9999;
+  left: 12px;
+  border-radius: 0 0 5px 5px;
+}
+.ingredient__container.active::-webkit-scrollbar,
+.appareil__container.active::-webkit-scrollbar,
+.utensil__container.active::-webkit-scrollbar {
+  background: none;
+  width: 0;
+}
+.ingredient__container.active span,
+.appareil__container.active span,
+.utensil__container.active span {
+  color: #fff;
+  font-size: 12px;
+}
+
+.ing-input-icon.active,
+.app-input-icon.active,
+.uten-input-icon.active {
+  display: block;
+  position: absolute;
+  color: #fff;
+  top: 27px;
+  right: 17px;
 }
 
 #header img {

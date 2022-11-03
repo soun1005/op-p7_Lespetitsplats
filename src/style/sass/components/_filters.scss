@@ -12,6 +12,7 @@
             height: 4.5rem;
             width: 10rem;
             cursor: pointer;
+            padding-left: 1rem;
             &::placeholder {
                 color: transparent;
             }
@@ -27,6 +28,7 @@
             height: 4.5rem;
             padding: 21px;
             width: 10rem;
+            cursor: pointer;
         }
         // <p> label
         &__label {
@@ -39,7 +41,15 @@
         background-color:#3282F7;
         color: $c-white;
         &.active {
-            width: inherit;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            &::placeholder {
+                color: $c-white;
+                opacity: 0.5;
+            }
+            &:focus::placeholder{
+                color: transparent;
+            }
         }
     }
 
@@ -47,14 +57,32 @@
         background-color:#68D9A4;
         color: $c-white;
         &.active {
-            width: inherit;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            &::placeholder {
+                color: $c-white;
+                opacity: 0.5;
+                padding-left: 1rem;
+            }
+            &:focus::placeholder{
+                color: transparent;
+            }
         }
     }
     .utensils-input {
         background-color:#ED6454;
         color: $c-white;
         &.active {
-            width: inherit;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            &::placeholder {
+                color: $c-white;
+                opacity: 0.5;
+                padding-left: 1rem;
+            }
+            &:focus::placeholder{
+                color: transparent;
+            }
         }
     }
 
@@ -62,42 +90,62 @@
     .list-container {
         display: none;
     }
+
+    .ing-input-icon,
+    .app-input-icon,
+    .uten-input-icon {
+        display: none;
+    }
 }
 
 
 
 // input display control 
-// when clicked -> .active class is added.
-// 1. list -> displayed
-// 2. label -> disappear
-// 3. icon -> 180deg rotate
-// 4. input width -> auto
+// when clicked -> 'active' class is added.
 
-.filters-wrap.active {
+// individual filter container
+
+.filters__ingredient.active,
+.filters__appareils.active,
+.filters__utensils.active {
 width: 35rem;
-position: relative;
 }
 
-.filters-wrap__label.active {
+// label on input
+.ing-label.active,
+.app-label.active,
+.uten-label.active {
     display: none;
 }
 
-.filters-wrap__input.active::placeholder {
-    color: $c-white;
-    opacity: 50%;
-}
 
-
-.ingredient-icon.active {
-    transform: rotate(180deg);
-    right: 0;
-}
-
-.list-container.active {
-    display: block;
-    width: auto;
-    max-height: 26rem;
-    background-color: red;
+// list containers
+.ingredient__container.active,
+.appareil__container.active,
+.utensil__container.active {
+    display: flex;
+    width: inherit;
+    max-height: 20rem;
+    background-color: #3282F7;
     overflow: scroll;
     position: absolute;
+    z-index: 9999;
+    left: 12px;
+    border-radius: 0 0 5px 5px;
+    &::-webkit-scrollbar { background: none; width: 0; }
+    span {
+        color: $c-white;
+        font-size: 12px;
+    }
+}
+
+// icons
+.ing-input-icon.active,
+.app-input-icon.active,
+.uten-input-icon.active {
+    display: block;
+    position: absolute;
+    color: $c-white;
+    top: 27px;
+    right: 17px;
 }
