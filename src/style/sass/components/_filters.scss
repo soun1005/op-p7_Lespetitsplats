@@ -62,7 +62,6 @@
             &::placeholder {
                 color: $c-white;
                 opacity: 0.5;
-                padding-left: 1rem;
             }
             &:focus::placeholder{
                 color: transparent;
@@ -78,7 +77,6 @@
             &::placeholder {
                 color: $c-white;
                 opacity: 0.5;
-                padding-left: 1rem;
             }
             &:focus::placeholder{
                 color: transparent;
@@ -89,6 +87,9 @@
     // elements container
     .list-container {
         display: none;
+    span {
+        cursor: pointer;
+    }
     }
 
     .ing-input-icon,
@@ -99,12 +100,10 @@
 }
 
 
-
 // input display control 
 // when clicked -> 'active' class is added.
 
 // individual filter container
-
 .filters__ingredient.active,
 .filters__appareil.active,
 .filters__utensil.active {

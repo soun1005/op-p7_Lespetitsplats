@@ -70,7 +70,6 @@ function utenFilterOpen() {
 
 function ingFilterClose() {
     if( ingLabel.classList.contains('active')
-        // ingLabel.className == 'active' 
         || ingInput.classList.contains('active')
         || ingIcon.classList.contains('active')
         || ingLabel.classList.contains('active')
@@ -88,7 +87,6 @@ function ingFilterClose() {
 
 function appFilterClose() {
     if( appLabel.classList.contains('active')
-        // ingLabel.className == 'active' 
         || appInput.classList.contains('active')
         || appIcon.classList.contains('active')
         || appLabel.classList.contains('active')
@@ -106,7 +104,6 @@ function appFilterClose() {
 
 function utenFilterClose() {
     if( utenLabel.classList.contains('active')
-        // ingLabel.className == 'active' 
         || utenInput.classList.contains('active')
         || utenIcon.classList.contains('active')
         || utenLabel.classList.contains('active')

@@ -79,17 +79,14 @@
 .filters .appareil-input.active::-moz-placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .appareil-input.active:-ms-input-placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .appareil-input.active::placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .appareil-input.active:focus::-moz-placeholder {
   color: transparent;
@@ -111,17 +108,14 @@
 .filters .utensil-input.active::-moz-placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .utensil-input.active:-ms-input-placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .utensil-input.active::placeholder {
   color: #fff;
   opacity: 0.5;
-  padding-left: 1rem;
 }
 .filters .utensil-input.active:focus::-moz-placeholder {
   color: transparent;
@@ -134,6 +128,9 @@
 }
 .filters .list-container {
   display: none;
+}
+.filters .list-container span {
+  cursor: pointer;
 }
 .filters .ing-input-icon,
 .filters .app-input-icon,
