@@ -118,60 +118,17 @@ function open(e) {
         displayUtensil();
         removeIngredient();
         removeApplicance();
-    }
+    } 
 }
-
-// ingLabel.addEventListener('click', open);
-// ingLabelText.addEventListener('click', open);
-// ingLabelIcon.addEventListener('click', open);
-// appLabel.addEventListener('click', open);
-// appLabelText.addEventListener('click', open);
-// appLabelIcon.addEventListener('click', open);
-// utenLabel.addEventListener('click', open);
-// utenLabelText.addEventListener('click', open);
-// utenLabelIcon.addEventListener('click', open);
 
 ingContainer.addEventListener('click', open);
 appContainer.addEventListener('click', open);
 utenContainer.addEventListener('click', open);
 
-window.addEventListener('click', (e)=> {
-    // target = clicked elements
-    let target = e.target; 
-    // do not trigger 'close' event if it contains these class name
-    if(
-        !target.classList.contains('ing-label')
-        && !target.classList.contains('ingredient-input')
-        && !target.classList.contains('ing-input-icon')
-        && !target.classList.contains('ingredient__container')
-        && !target.classList.contains('filters__ingredient')
-        && !target.classList.contains('filters-wrap__label-wrap')
-        && !target.classList.contains('ing-label-text')
-        && !target.classList.contains('ing-label-icon')
-        && !target.classList.contains('col-4')
-        && !target.classList.contains('app-label')
-        && !target.classList.contains('appareil-input')
-        && !target.classList.contains('app-input-icon')
-        && !target.classList.contains('appareil__container')
-        && !target.classList.contains('filters__appareil')
-        && !target.classList.contains('filters-wrap__label-wrap')
-        && !target.classList.contains('app-label-text')
-        && !target.classList.contains('app-label-icon')
-        && !target.classList.contains('col-4')
-        && !target.classList.contains('uten-label')
-        && !target.classList.contains('utensil-input')
-        && !target.classList.contains('uten-input-icon')
-        && !target.classList.contains('utensil__container')
-        && !target.classList.contains('filters__utensil')
-        && !target.classList.contains('filters-wrap__label-wrap')
-        && !target.classList.contains('uten-label-text')
-        && !target.classList.contains('uten-label-icon')
-        && !target.classList.contains('col-4')
-
-    ){   
+document.addEventListener('click',(e)=> {
+    if(!ingContainer.contains(e.target) && !appContainer.contains(e.target) && !utenContainer.contains(e.target)){
         removeApplicance();
         removeUtensil();
         removeIngredient();
-    } 
-    
+    }
 })
