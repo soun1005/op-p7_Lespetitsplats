@@ -23,8 +23,8 @@ const appLabel = document.querySelector('.app-label');
 const appLabelText = document.querySelector('.app-label-text');
 const appLabelIcon = document.querySelector('.app-label-icon');
 const utenLabel = document.querySelector('.uten-label');
-const utenLabelText = document.querySelector('.app-label-text');
-const utenLabelIcon = document.querySelector('.app-label-icon');
+const utenLabelText = document.querySelector('.uten-label-text');
+const utenLabelIcon = document.querySelector('.uten-label-icon');
 
 // icons
 const ingIcon = document.querySelector('.ing-input-icon'); 
@@ -36,104 +36,111 @@ const ingLiContainer = document.querySelector('.ingredient__container');
 const appLiContainer = document.querySelector('.appareil__container');
 const utenLiContainer = document.querySelector('.utensil__container');
 
-
 /**********************************
 ingredient open/close button event
 ***********************************/ 
 
-function ingFilterOpen() {
-    // click -> add .active
-    ingLabel.classList.add('active');
-    ingInput.classList.add('active');
-    ingIcon.classList.add('active');
-    ingLiContainer.classList.add('active');
+function displayIngredient () {
     ingContainer.classList.add('active');
+    ingLiContainer.classList.add('active');
+    ingInput.classList.add('active');
+    ingLabelText.style.display = 'none';
+    ingIcon.classList.add('active');
+    ingLabel.style.display = 'none';
 }
 
-function appFilterOpen() {
-    // click -> add .active
-    appLabel.classList.add('active');
-    appInput.classList.add('active');
-    appIcon.classList.add('active');
-    appLiContainer.classList.add('active');
+function displayAppliance () {
     appContainer.classList.add('active');
+    appLiContainer.classList.add('active');
+    appInput.classList.add('active');
+    appLabelText.style.display = 'none';
+    appIcon.classList.add('active');
+    appLabel.style.display = 'none';
 }
 
-function utenFilterOpen() {
-    // click -> add .active
-    utenLabel.classList.add('active');
-    utenInput.classList.add('active');
-    utenIcon.classList.add('active');
-    utenLiContainer.classList.add('active');
+function displayUtensil () {
     utenContainer.classList.add('active');
+    utenLiContainer.classList.add('active');
+    utenInput.classList.add('active');
+    utenLabelText.style.display = 'none';
+    utenIcon.classList.add('active');
+    utenLabel.style.display = 'none';
 }
 
-function ingFilterClose() {
-    if( ingLabel.classList.contains('active')
-        || ingInput.classList.contains('active')
-        || ingIcon.classList.contains('active')
-        || ingLabel.classList.contains('active')
-        || ingLiContainer.classList.contains('active')
-        || ingContainer.classList.contains('active')
-    ){
-        ingLabel.classList.remove('active');
-        ingInput.classList.remove('active');
-        ingIcon.classList.remove('active');
-        ingLabel.classList.remove('active');
-        ingLiContainer.classList.remove('active');
-        ingContainer.classList.remove('active');
+function removeApplicance () {
+    appInput.classList.remove('active');
+    appContainer.classList.remove('active');
+    appLabel.style.display = 'flex';
+    appLiContainer.classList.remove('active');
+    appLabelText.style.display = 'flex';
+    appIcon.classList.remove('active');
+    appInput.value = '';
+}
+
+function removeUtensil () {
+    utenInput.classList.remove('active');
+    utenLabel.style.display = 'flex';
+    utenLiContainer.classList.remove('active');
+    utenContainer.classList.remove('active');
+    utenLabelText.style.display = 'flex';
+    utenIcon.classList.remove('active');
+    utenInput.value = '';
+}
+
+function removeIngredient () {
+    ingInput.classList.remove('active');
+    ingContainer.classList.remove('active');
+    ingLiContainer.classList.remove('active');
+    ingLabelText.style.display = 'flex';
+    ingIcon.classList.remove('active');
+    ingLabel.style.display = 'flex';
+    ingInput.value = '';
+}
+
+function open(e) {
+    const target = e.target;
+    
+    // INGREDIENTS
+    if (target === ingContainer || target === ingInput || target === ingLabel || target === ingLabelText || target === ingLabelIcon || target === ingIcon) {
+        displayIngredient();
+        removeApplicance();
+        removeUtensil();
+        
+
+    // APPLIANCES
+    } else if (target === appContainer || target === appInput || target === appLabel || target === appLabelText || target === appLabelIcon || target === appIcon) {
+        displayAppliance();
+        removeIngredient();
+        removeUtensil();
+
+    // UTENSILS
+    } else if (target === utenContainer || target === utenInput || target === utenLabel || target === utenLabelText || target === utenLabelIcon || target === utenIcon) {
+        displayUtensil();
+        removeIngredient();
+        removeApplicance();
     }
 }
 
-function appFilterClose() {
-    if( appLabel.classList.contains('active')
-        || appInput.classList.contains('active')
-        || appIcon.classList.contains('active')
-        || appLabel.classList.contains('active')
-        || appLiContainer.classList.contains('active')
-        || appContainer.classList.contains('active')
-    ){
-        appLabel.classList.remove('active');
-        appInput.classList.remove('active');
-        appIcon.classList.remove('active');
-        appLabel.classList.remove('active');
-        appLiContainer.classList.remove('active');
-        appContainer.classList.remove('active');
-    }
-}
+// ingLabel.addEventListener('click', open);
+// ingLabelText.addEventListener('click', open);
+// ingLabelIcon.addEventListener('click', open);
+// appLabel.addEventListener('click', open);
+// appLabelText.addEventListener('click', open);
+// appLabelIcon.addEventListener('click', open);
+// utenLabel.addEventListener('click', open);
+// utenLabelText.addEventListener('click', open);
+// utenLabelIcon.addEventListener('click', open);
 
-function utenFilterClose() {
-    if( utenLabel.classList.contains('active')
-        || utenInput.classList.contains('active')
-        || utenIcon.classList.contains('active')
-        || utenLabel.classList.contains('active')
-        || utenLiContainer.classList.contains('active')
-        || utenContainer.classList.contains('active')
-    ){
-        utenLabel.classList.remove('active');
-        utenInput.classList.remove('active');
-        utenIcon.classList.remove('active');
-        utenLabel.classList.remove('active');
-        utenLiContainer.classList.remove('active');
-        utenContainer.classList.remove('active');
-    }
-}
-
-ingLabel.addEventListener('click', ingFilterOpen);
-ingLabelText.addEventListener('click', ingFilterOpen);
-ingLabelIcon.addEventListener('click', ingFilterOpen);
-appLabel.addEventListener('click', appFilterOpen);
-appLabelText.addEventListener('click', appFilterOpen);
-appLabelIcon.addEventListener('click', appFilterOpen);
-utenLabel.addEventListener('click', utenFilterOpen);
-utenLabelText.addEventListener('click', utenFilterOpen);
-utenLabelIcon.addEventListener('click', utenFilterOpen);
+ingContainer.addEventListener('click', open);
+appContainer.addEventListener('click', open);
+utenContainer.addEventListener('click', open);
 
 window.addEventListener('click', (e)=> {
     // target = clicked elements
     let target = e.target; 
     // do not trigger 'close' event if it contains these class name
-    if(!target.classList.contains('ing-label')
+    if(
+        !target.classList.contains('ing-label')
         && !target.classList.contains('ingredient-input')
         && !target.classList.contains('ing-input-icon')
         && !target.classList.contains('ingredient__container')
@@ -142,18 +149,7 @@ window.addEventListener('click', (e)=> {
         && !target.classList.contains('ing-label-text')
         && !target.classList.contains('ing-label-icon')
         && !target.classList.contains('col-4')
-    ){   
-        ingFilterClose()
-        ingInput.value = '';
-    } 
-    
-})
-
-window.addEventListener('click', (e)=> {
-    // target = clicked elements
-    let target = e.target; 
-    // do not trigger 'close' event if it contains these class name
-    if(!target.classList.contains('app-label')
+        && !target.classList.contains('app-label')
         && !target.classList.contains('appareil-input')
         && !target.classList.contains('app-input-icon')
         && !target.classList.contains('appareil__container')
@@ -162,17 +158,7 @@ window.addEventListener('click', (e)=> {
         && !target.classList.contains('app-label-text')
         && !target.classList.contains('app-label-icon')
         && !target.classList.contains('col-4')
-    ){   
-        appFilterClose()
-        appInput.value = '';
-    } 
-})
-
-window.addEventListener('click', (e)=> {
-    // target = clicked elements
-    let target = e.target; 
-    // do not trigger 'close' event if it contains these class name
-    if(!target.classList.contains('uten-label')
+        && !target.classList.contains('uten-label')
         && !target.classList.contains('utensil-input')
         && !target.classList.contains('uten-input-icon')
         && !target.classList.contains('utensil__container')
@@ -181,8 +167,11 @@ window.addEventListener('click', (e)=> {
         && !target.classList.contains('uten-label-text')
         && !target.classList.contains('uten-label-icon')
         && !target.classList.contains('col-4')
+
     ){   
-        utenFilterClose()
-        utenInput.value = '';
+        removeApplicance();
+        removeUtensil();
+        removeIngredient();
     } 
+    
 })

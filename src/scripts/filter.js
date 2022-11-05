@@ -7,3 +7,6 @@ function liveSearch(){
 }
 
 input.addEventListener('keyup',liveSearch)
+
+let string = 'hello';
+console.log(string.slice(0,3));
