@@ -97,33 +97,26 @@ function removeIngredient () {
     ingInput.value = '';
 }
 
-function open(e) {
+function openFilter(e) {
     const target = e.target;
-    
-    // INGREDIENTS
-    if (target === ingContainer || target === ingInput || target === ingLabel || target === ingLabelText || target === ingLabelIcon || target === ingIcon) {
+    if (ingContainer.contains(target)){
         displayIngredient();
         removeApplicance();
         removeUtensil();
-        
-
-    // APPLIANCES
-    } else if (target === appContainer || target === appInput || target === appLabel || target === appLabelText || target === appLabelIcon || target === appIcon) {
+    } else if(appContainer.contains(target)){
         displayAppliance();
         removeIngredient();
         removeUtensil();
-
-    // UTENSILS
-    } else if (target === utenContainer || target === utenInput || target === utenLabel || target === utenLabelText || target === utenLabelIcon || target === utenIcon) {
+    } else if(utenContainer.contains(target)){
         displayUtensil();
         removeIngredient();
         removeApplicance();
-    } 
+    }
 }
 
-ingContainer.addEventListener('click', open);
-appContainer.addEventListener('click', open);
-utenContainer.addEventListener('click', open);
+ingContainer.addEventListener('click', openFilter);
+appContainer.addEventListener('click', openFilter);
+utenContainer.addEventListener('click', openFilter);
 
 document.addEventListener('click',(e)=> {
     if(!ingContainer.contains(e.target) && !appContainer.contains(e.target) && !utenContainer.contains(e.target)){
