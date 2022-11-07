@@ -8,10 +8,12 @@ import recipeData from '../data/recipes.js';
 
 // main search input
 const input = document.querySelector('input');
+// error message
+const noMatch = document.querySelector('.no-match');
 
 function mainSearch(event){
     // input value
-    const searchValue = event.target.value.toLowerCase();
+    const searchValue = event.target.value.toLowerCase().trim();
     
     // when keyword is less than 3, display all recipes.
     if(searchValue.length < 3){
@@ -27,30 +29,26 @@ function mainSearch(event){
 
             // ingredients
             const ingredients = element.ingredients;
-            const ingredientElements = ingredients.map(el => {
-                return el.ingredient.toLowerCase();
+            const ingredientElements = ingredients.find(el => {
+                return el.ingredient.toLowerCase().includes(searchValue);
             });
 
             // description
             const desc = element.description.toLowerCase();
-            
+
             if(title.includes(searchValue) 
-                || ingredientElements.includes(searchValue) 
+                || ingredientElements
                 || desc.includes(searchValue)
                 ){
+                noMatch.classList.remove('active');
                 return true;
-            } else if(!title.includes(searchValue)
-            && !ingredientElements.includes(searchValue) 
-            && !desc.includes(searchValue)
-            ){
-                const noMatch = document.querySelector('.no-match');
-                noMatch.style.display = 'flex';
-                noMatch.style.height = '50vh';
-                noMatch.style.justifyContent = 'center';
-                noMatch.style.alignItems = 'center';
-            }
+            } 
         });
         displayData(searchArray);  
+        if(searchArray.length === 0){
+                noMatch.classList.add('active');
+            }
+        
     }  
 }
 
