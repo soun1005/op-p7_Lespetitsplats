@@ -1,14 +1,15 @@
 import { recipeFactory } from './factory.js';
-import recipes from '../data/recipes.js';
+import recipeData from '../data/recipes.js';
 import { displayIngList, displayApplianceList, displayUtensilList } from './filterList.js';
 
-/*****************************************************
- display photographer data inside card-container
- *****************************************************/
- async function displayData(recipes) {
+/******************************************
+ display recipe data inside card-container
+ ******************************************/
+  export function displayData(recipeArray) {
     const cardContainer = document.querySelector('.card__container');
+    cardContainer.innerHTML = '';
     // 각 레시피 어레이에 foreach 
-    recipes.forEach((recipe) => {
+    recipeArray.forEach((recipe) => {
       // 여기서 recipe는 각각의 레시피 배열 요소
       // 카드는 팩토리 안에 레시피를 넣은 값
       const card = recipeFactory(recipe);
@@ -18,11 +19,12 @@ import { displayIngList, displayApplianceList, displayUtensilList } from './filt
     });
   }
 
-  async function init() {
-  /******* Récupère les datas********/
-    displayData(recipes);
-    displayIngList(recipes);
-    displayApplianceList(recipes);
-    displayUtensilList(recipes);
+  function init() {
+    displayData(recipeData);
+    displayIngList(recipeData);
+    displayApplianceList(recipeData);
+    displayUtensilList(recipeData);
   }
+
   init();
+

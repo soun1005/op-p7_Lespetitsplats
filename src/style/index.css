@@ -305,6 +305,10 @@
   font-size: 13px;
 }
 
+.no-match {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }

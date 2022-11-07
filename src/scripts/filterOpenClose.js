@@ -40,7 +40,7 @@ const utenLiContainer = document.querySelector('.utensil__container');
 ingredient open/close button event
 ***********************************/ 
 
-function displayIngredient () {
+function displayIngredient() {
     ingContainer.classList.add('active');
     ingLiContainer.classList.add('active');
     ingInput.classList.add('active');
@@ -49,7 +49,7 @@ function displayIngredient () {
     ingLabel.style.display = 'none';
 }
 
-function displayAppliance () {
+function displayAppliance() {
     appContainer.classList.add('active');
     appLiContainer.classList.add('active');
     appInput.classList.add('active');
@@ -58,7 +58,7 @@ function displayAppliance () {
     appLabel.style.display = 'none';
 }
 
-function displayUtensil () {
+function displayUtensil() {
     utenContainer.classList.add('active');
     utenLiContainer.classList.add('active');
     utenInput.classList.add('active');
@@ -67,7 +67,7 @@ function displayUtensil () {
     utenLabel.style.display = 'none';
 }
 
-function removeApplicance () {
+function removeApplicance() {
     appInput.classList.remove('active');
     appContainer.classList.remove('active');
     appLabel.style.display = 'flex';
@@ -77,7 +77,7 @@ function removeApplicance () {
     appInput.value = '';
 }
 
-function removeUtensil () {
+function removeUtensil() {
     utenInput.classList.remove('active');
     utenLabel.style.display = 'flex';
     utenLiContainer.classList.remove('active');
@@ -87,7 +87,7 @@ function removeUtensil () {
     utenInput.value = '';
 }
 
-function removeIngredient () {
+function removeIngredient() {
     ingInput.classList.remove('active');
     ingContainer.classList.remove('active');
     ingLiContainer.classList.remove('active');
@@ -118,6 +118,7 @@ ingContainer.addEventListener('click', openFilter);
 appContainer.addEventListener('click', openFilter);
 utenContainer.addEventListener('click', openFilter);
 
+// when outside of filter is clicked, filters all close
 document.addEventListener('click',(e)=> {
     if(!ingContainer.contains(e.target) && !appContainer.contains(e.target) && !utenContainer.contains(e.target)){
         removeApplicance();
