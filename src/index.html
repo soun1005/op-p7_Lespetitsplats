@@ -52,6 +52,7 @@
         <div class="filters-wrap filters__ingredient">
           <input
             type="text"
+            id="ing-input"
             class="filters-wrap__input ingredient-input"
             name="ingredient-input"
             placeholder="Rechercher un ingrédient"
@@ -61,12 +62,14 @@
             <i class="fas fa-chevron-down ing-label-icon"></i>
           </div>
           <i class="fa-solid fa-chevron-up ing-input-icon"></i>
+          <div class="row ingredient__container list-container"></div>
         </div>
 
         <!-- appareils filter -->
         <div class="filters-wrap filters__appareil">
           <input
             type="text"
+            id="app-input"
             class="filters-wrap__input appareil-input"
             name="appareil-input"
             placeholder="Rechercher un appareil"
@@ -76,11 +79,13 @@
             <i class="fas fa-chevron-down app-label-icon"></i>
           </div>
           <i class="fa-solid fa-chevron-up app-input-icon"></i>
+          <div class="row appareil__container list-container"></div>
         </div>
         <!-- utensils filter -->
         <div class="filters-wrap filters__utensil">
           <input
             type="text"
+            id="uten-input"
             class="filters-wrap__input utensil-input"
             name="utensil-input"
             placeholder="Rechercher un ustensil"
@@ -90,6 +95,7 @@
             <i class="fas fa-chevron-down uten-label-text"></i>
           </div>
           <i class="fa-solid fa-chevron-up uten-input-icon"></i>
+          <div class="row utensil__container list-container"></div>
         </div>
       </section>
       <!-- main recipe section -->
@@ -110,6 +116,6 @@
     <script src="/src/scripts/factory.js" type="module"></script>
     <script src="/src/scripts/index.js" type="module"></script>
     <script src="/src/scripts/filterOpenClose.js" type="module"></script>
-    <script src="/src/scripts/mainInput.js" type="module"></script>
+    <script src="/src/scripts/search.js" type="module"></script>
   </body>
 </html>
