@@ -1,3 +1,7 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-cycle */
+import { setSearchTag } from './search.js';
+
 function recipeFactory(data) { // eslint-disable-line no-unused-vars
   // Destructuring Assignment 객체구조분해
   const {
@@ -115,9 +119,13 @@ function ingFilter(ingredientArray) {
   function makeIngList() {
     return ingredientArray.map((ingredient) => {
       const ingredientLi = document.createElement('div');
-      ingredientLi.classList.add('col-4', 'mb-1', 'ing-list-element');
+      ingredientLi.classList.add('col-4', 'mb-1');
       const ingElements = document.createElement('span');
       ingElements.textContent = ingredient;
+      ingElements.classList.add('ing-list-element');
+      ingElements.addEventListener('click', () => {
+        setSearchTag(ingredient, 'ingredient');
+      });
       ingredientLi.append(ingElements);
       return ingredientLi;
     });
@@ -129,9 +137,13 @@ function applianceFilter(applianceArray) {
   function makeApplianceList() {
     return applianceArray.map((appliance) => {
       const applianceLi = document.createElement('div');
-      applianceLi.classList.add('col-4', 'mb-1', 'app-list-element');
+      applianceLi.classList.add('col-4', 'mb-1');
       const appElements = document.createElement('span');
       appElements.textContent = appliance;
+      appElements.classList.add('app-list-element');
+      appElements.addEventListener('click', () => {
+        setSearchTag(appliance, 'appliance');
+      });
       applianceLi.append(appElements);
       return applianceLi;
     });
@@ -143,9 +155,13 @@ function utensilFilter(utensilArray) {
   function makeUtensilList() {
     return utensilArray.map((utensil) => {
       const utensilLi = document.createElement('div');
-      utensilLi.classList.add('col-4', 'mb-1', 'uten-list-element');
+      utensilLi.classList.add('col-4', 'mb-1');
       const utenElements = document.createElement('span');
       utenElements.textContent = utensil;
+      utenElements.classList.add('uten-list-element');
+      utenElements.addEventListener('click', () => {
+        setSearchTag(utensil, 'utensil');
+      });
       utensilLi.append(utenElements);
       return utensilLi;
     });

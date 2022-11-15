@@ -220,6 +220,38 @@
   right: 17px;
 }
 
+.tag-container {
+  margin-bottom: 1rem;
+  display: flex;
+}
+.tag-container .tag {
+  padding: 10px 18px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 8px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.tag-container .tag-item {
+  margin-right: 10px;
+}
+.tag-container .tag i {
+  font-size: 18px;
+  color: #fff;
+}
+.tag-container .ingredient-tag {
+  background-color: #3282F7;
+}
+.tag-container .appliance-tag {
+  background-color: #68D9A4;
+}
+.tag-container .utensil-tag {
+  background-color: #ED6454;
+}
+
 #header img {
   max-width: 12rem;
   margin: 2rem 0 1rem 0;

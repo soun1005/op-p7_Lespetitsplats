@@ -1,8 +1,9 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable import/extensions */
 import { ingFilter, applianceFilter, utensilFilter } from './factory.js';
-/** ***************
+/*****************
 display lists
-***************** */
+******************/
 
 // ingredient
 async function displayIngList(ingredientArray) {
@@ -41,6 +42,5 @@ async function displayUtensilList(utensilArray) {
   utensilFilterDiv.append(utensilContainer);
   utensilContainer.append(...utensilList);
 }
-
 
 export { displayIngList, displayApplianceList, displayUtensilList };
