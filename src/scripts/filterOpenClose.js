@@ -2,9 +2,6 @@
 dom selectors
 ***************** */
 
-// all buttons
-const inputs = document.querySelectorAll('.filters-wrap__input');
-
 // filter elements container
 const ingContainer = document.querySelector('.filters__ingredient');
 const appContainer = document.querySelector('.filters__appareil');
@@ -18,13 +15,10 @@ const utenInput = document.querySelector('.utensil-input');
 // labels
 const ingLabel = document.querySelector('.ing-label');
 const ingLabelText = document.querySelector('.ing-label-text');
-const ingLabelIcon = document.querySelector('.ing-label-icon');
 const appLabel = document.querySelector('.app-label');
 const appLabelText = document.querySelector('.app-label-text');
-const appLabelIcon = document.querySelector('.app-label-icon');
 const utenLabel = document.querySelector('.uten-label');
 const utenLabelText = document.querySelector('.uten-label-text');
-const utenLabelIcon = document.querySelector('.uten-label-icon');
 
 // icons
 const ingIcon = document.querySelector('.ing-input-icon');
@@ -67,6 +61,16 @@ function displayUtensil() {
   utenLabel.style.display = 'none';
 }
 
+function removeIngredient() {
+  ingInput.classList.remove('active');
+  ingContainer.classList.remove('active');
+  ingLiContainer.classList.remove('active');
+  ingLabelText.style.display = 'flex';
+  ingIcon.classList.remove('active');
+  ingLabel.style.display = 'flex';
+  ingInput.value = '';
+}
+
 function removeApplicance() {
   appInput.classList.remove('active');
   appContainer.classList.remove('active');
@@ -87,15 +91,6 @@ function removeUtensil() {
   utenInput.value = '';
 }
 
-function removeIngredient() {
-  ingInput.classList.remove('active');
-  ingContainer.classList.remove('active');
-  ingLiContainer.classList.remove('active');
-  ingLabelText.style.display = 'flex';
-  ingIcon.classList.remove('active');
-  ingLabel.style.display = 'flex';
-  ingInput.value = '';
-}
 
 function openFilter(e) {
   const { target } = e;

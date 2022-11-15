@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { ingFilter, applianceFilter, utensilFilter } from './factory.js';
 /** ***************
 display lists

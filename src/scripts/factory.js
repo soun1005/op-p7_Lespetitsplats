@@ -115,9 +115,9 @@ function ingFilter(ingredientArray) {
   function makeIngList() {
     return ingredientArray.map((ingredient) => {
       const ingredientLi = document.createElement('div');
-      ingredientLi.classList.add('col-4', 'mb-1');
+      ingredientLi.classList.add('col-4', 'mb-1', 'ing-list-element');
       const ingElements = document.createElement('span');
-      ingElements.innerHTML = ingredient;
+      ingElements.textContent = ingredient;
       ingredientLi.append(ingElements);
       return ingredientLi;
     });
@@ -129,9 +129,9 @@ function applianceFilter(applianceArray) {
   function makeApplianceList() {
     return applianceArray.map((appliance) => {
       const applianceLi = document.createElement('div');
-      applianceLi.classList.add('col-4', 'mb-1');
+      applianceLi.classList.add('col-4', 'mb-1', 'app-list-element');
       const appElements = document.createElement('span');
-      appElements.innerHTML = appliance;
+      appElements.textContent = appliance;
       applianceLi.append(appElements);
       return applianceLi;
     });
@@ -143,9 +143,9 @@ function utensilFilter(utensilArray) {
   function makeUtensilList() {
     return utensilArray.map((utensil) => {
       const utensilLi = document.createElement('div');
-      utensilLi.classList.add('col-4', 'mb-1');
+      utensilLi.classList.add('col-4', 'mb-1', 'uten-list-element');
       const utenElements = document.createElement('span');
-      utenElements.innerHTML = utensil;
+      utenElements.textContent = utensil;
       utensilLi.append(utenElements);
       return utensilLi;
     });
