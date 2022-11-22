@@ -30,27 +30,30 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
         ******************************* */
     // card head
     const cardHead = document.createElement('div');
-    cardHead.classList.add('card-body-head');
-    cardHead.classList.add('d-xl-flex');
-    cardHead.classList.add('justify-content-between');
-    cardHead.classList.add('align-items-center');
+    cardHead.classList.add('card-body-head', 'd-xl-flex', 'flex-row', 'justify-content-between', 'align-items-center', 'row');
 
     const cardTitle = document.createElement('h1');
-    cardTitle.classList.add('card-title');
+    cardTitle.classList.add('card__title', 'col-9');
     cardTitle.textContent = name;
 
+    const iconDiv = document.createElement('div');
+    iconDiv.classList.add('card__title-side', 'col-3');
     const cardClockIcon = document.createElement('span');
+    const cardTime = document.createElement('span');
+    cardTime.classList.add('recipe-time');
+    iconDiv.append(cardClockIcon);
+    iconDiv.append(cardTime);
     cardClockIcon.classList.add('fa-regular', 'fa-clock');
-    cardClockIcon.textContent = time;
+    cardTime.textContent = `${time}min`;
 
     /** *************************************
         card body part = ingredients and recipe
         *************************************** */
 
     const cardDscr = document.createElement('div');
-    cardDscr.classList.add('card__dscr');
+    cardDscr.classList.add('card__dscr', 'row');
     const ingredientContainer = document.createElement('ul');
-    ingredientContainer.classList.add('ingredients__container');
+    ingredientContainer.classList.add('ingredients__container', 'col-6');
     cardDscr.append(ingredientContainer);
 
     // ingredients
@@ -80,7 +83,7 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
 
     // recipe
     const recipeContent = document.createElement('div');
-    recipeContent.classList.add('recipe-content');
+    recipeContent.classList.add('recipe-content', 'col-6');
     const recipeParagraphe = document.createElement('p');
     recipeParagraphe.innerText = description;
 
@@ -95,7 +98,7 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     cardDscr.append(recipeContent);
 
     cardHead.append(cardTitle);
-    cardHead.append(cardClockIcon);
+    cardHead.append(iconDiv);
 
     recipeContent.append(recipeParagraphe);
 

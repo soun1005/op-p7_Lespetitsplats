@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable spaced-comment */
 /* eslint-disable max-len */
@@ -6,7 +9,6 @@
 import { displayData } from './index.js';
 import recipeData from '../data/recipes.js';
 import { displayIngList, displayApplianceList, displayUtensilList } from './filterList.js';
-// import { filterByTag } from './filter.js';
 
 let searchedRecipes = recipeData;
 
@@ -59,20 +61,24 @@ function mainSearch(event) {
     displayData(searchArray);
     searchedRecipes = searchArray;
     // console.log('searchedRecipes=', searchedRecipes);
+    // error message
     if (searchArray.length === 0) {
       noMatch.classList.add('active');
     }
   }
+  console.log(searchedRecipes);
 }
 
+/***********************
+ advanced filter search
+ ***********************/
 function filterSearch(event) {
   const searchValue = event.target.value.toLowerCase().trim();
 
+  // searched value goes inside each array
   const ingArray = [];
   const appArray = [];
   const utenArray = [];
-
-  // searched value goes inside each array
 
   searchedRecipes.forEach((element) => {
     const { ingredients } = element;
@@ -146,10 +152,9 @@ filterLabel.forEach(label => {
 /**************
 filter by tag
 ***************/
-// list containers
-const ingList = document.querySelectorAll('.ing-list-element');
-// chosen item goes inside filterArray
+// chosen tag's element goes inside filterArray
 const filterArray = [];
+
 export function setSearchTag(element, type) {
   /*******************************
    1. make array to display recipe
@@ -157,7 +162,7 @@ export function setSearchTag(element, type) {
   // if element doesn't already exist, push into filterArray
   if (!filterArray.includes(element)) {
     filterArray.push(element);
-    console.log(filterArray);
+    // console.log(filterArray);
 
     /*************
      create tags
@@ -183,50 +188,35 @@ export function setSearchTag(element, type) {
   /*************************************
    2. compare array and searchedRecipe
   **************************************/
-
-  // 필터배열에 있는 요소들이 '서치드레시피'중 재료/도구/장비 랑 매치된것을 const에 저장.
-  // const를 displayData에 넣기
-
-  console.log('searchedRecipes:', searchedRecipes);
-  console.log('filterArray:', filterArray);
-
-  // loop through data to make new array
-  const searchArray = recipeData.filter((element) => {
+  // 필터배열에 있는 요소들이 'searchedRecipes'중 재료/도구/장비 랑 매치된것을 const에 저장.
+  // 저장된 const를 displayData에 넣기
+  const searchedElements = searchedRecipes.filter((data) => {
     // element = each array inside recipe data
-    // ingredients
-    const { ingredients } = element;
-    const ingredientElements = ingredients.find((el) => el.ingredient.includes(filterArray));
-    
-    const { appliance } = element;
-    const { ustensils } = element;
-    console.log('ustensils', ustensils);
+    // all types of elements are 'array'
+    const { ingredients } = data;
+    const ingredient = ingredients.map((el) => el.ingredient);
+    const ing = ingredient;
+    const { appliance } = data;
+    const app = [];
+    app.push(appliance);
+    const { ustensils } = data;
+    const uten = ustensils;
+
+    // console.log(app);
+    const allElements = [...ing, ...app, ...uten];
+
+    // console.log(allElements);
+    // console.log(filterArray);
+    // console.log(allElements);
+
+    if (filterArray.every(el => allElements.includes(el))) {
+      return true;
+    }
   });
 
-  // searchedRecipes.forEach((element) => {
-  //   const { appliance } = element;
-  //   if (appliance.toLowerCase().includes(searchValue)
-  //   && !appArray.includes(appliance)) {
-  //     appArray.push(appliance);
-  //   }
-  // });
-
-  // searchedRecipes.forEach((element) => {
-  //   const { ustensils } = element;
-  //   ustensils.forEach((utensil) => {
-  //     if (utensil.toLowerCase().includes(searchValue)
-  //     && !utenArray.includes(utensil)) {
-  //       utenArray.push(utensil);
-  //     }
-  //   });
-  // });
-
-  //   ingredientElements.includes(filterArray)
-  //             || appliance.includes(filterArray)
-  //             || ustensils.includes(filterArray)
-
-  // });
-  // displayData(searchArray);
-  // searchedRecipes = searchArray;
+console.log(searchedElements);
+  searchedRecipes = searchedElements;
+  displayData(searchedElements);
 }
 
 input.addEventListener('keyup', mainSearch);

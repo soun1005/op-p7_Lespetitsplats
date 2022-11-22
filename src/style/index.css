@@ -299,9 +299,10 @@
 .card {
   width: 25rem;
   height: 24rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  border: none;
 }
 .card-img-top {
   background-color: rgb(187, 187, 187);
@@ -309,32 +310,62 @@
 }
 .card-body {
   height: 13rem;
+  background-color: #e7e7e7;
 }
 .card-body-head {
-  height: 3rem;
+  height: 40px;
+  width: 100%;
   margin-bottom: 10px;
+  white-space: nowrap;
 }
 .card-body h1 {
   margin-bottom: 0;
+  font-weight: 400;
   font-size: 20px;
+}
+.card-body .fa-regular {
+  font-size: 20px;
+  font-weight: 500;
+}
+.card-body .recipe-time {
+  font-weight: 600;
+  margin-left: 5px;
+  font-size: 18px;
+}
+.card__title {
+  overflow: hidden;
+  max-width: 300px;
+  text-overflow: ellipsis;
+}
+.card__title-side {
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
 }
 .card__dscr {
   display: flex;
   justify-content: space-between;
   line-height: 1.2;
+  max-height: 8rem;
+  overflow: hidden;
 }
 .card__dscr li {
   list-style: none;
 }
 .card .ingredients__container {
-  width: 45%;
+  line-height: 1;
 }
 .card .ingredients__container span {
-  font-size: 12px;
+  font-size: 10px;
+  white-space: nowrap;
 }
 .card .recipe-content {
-  width: 50%;
-  font-size: 13px;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .no-match {
