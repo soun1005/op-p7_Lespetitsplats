@@ -238,8 +238,8 @@
 .tag-container .tag-item {
   margin-right: 10px;
 }
-.tag-container .tag i {
-  font-size: 18px;
+.tag-container .tag .close-icon {
+  font-size: 20px;
   color: #fff;
 }
 .tag-container .ingredient-tag {

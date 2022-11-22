@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
 import { recipeFactory } from './factory.js';

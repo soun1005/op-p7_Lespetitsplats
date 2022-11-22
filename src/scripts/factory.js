@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-cycle */
 import { setSearchTag } from './search.js';
@@ -25,9 +26,9 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     const cardImg = document.createElement('div');
     cardImg.classList.add('card-img-top');
 
-    /** *****************************
-        card head = title, time and icon
-        ******************************* */
+    /********************************
+    card head = title, time and icon
+    *********************************/
     // card head
     const cardHead = document.createElement('div');
     cardHead.classList.add('card-body-head', 'd-xl-flex', 'flex-row', 'justify-content-between', 'align-items-center', 'row');
@@ -46,9 +47,9 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     cardClockIcon.classList.add('fa-regular', 'fa-clock');
     cardTime.textContent = `${time}min`;
 
-    /** *************************************
-        card body part = ingredients and recipe
-        *************************************** */
+    /***************************************
+    card body part = ingredients and recipe
+    ****************************************/
 
     const cardDscr = document.createElement('div');
     cardDscr.classList.add('card__dscr', 'row');
@@ -87,9 +88,9 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
     const recipeParagraphe = document.createElement('p');
     recipeParagraphe.innerText = description;
 
-    /** *********
-        append divs
-        *********** */
+    /***********
+    append divs
+    ************/
     cardWrap.append(cardImg);
     cardWrap.append(cardBody);
 
@@ -109,14 +110,14 @@ function recipeFactory(data) { // eslint-disable-line no-unused-vars
   };
 }
 
-/** ********************************************
+/**********************************************
   [filter list factories]
   each function takes array of their elements
   each elements are generated as <li>
   with 'map'function and
   the list innerHtml is each element content
   ex) ingredient <li> contains each 'ingredient'
-  ********************************************* */
+**********************************************/
 
 function ingFilter(ingredientArray) {
   function makeIngList() {

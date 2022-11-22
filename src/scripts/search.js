@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable array-callback-return */
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-cycle */
@@ -11,6 +12,7 @@ import recipeData from '../data/recipes.js';
 import { displayIngList, displayApplianceList, displayUtensilList } from './filterList.js';
 
 let searchedRecipes = recipeData;
+let tagSearchedRecipes = [];
 
 // main search input
 const input = document.getElementById('input-form');
@@ -32,22 +34,18 @@ function mainSearch(event) {
 
   // when keyword is less than 3, display all recipes.
   if (searchValue.length < 3) {
-    displayData(recipeData);
-    searchedRecipes = recipeData;
+    // displayData(recipeData);
+    displayData(tagSearchedRecipes.length > 0 ? tagSearchedRecipes : recipeData);
+    // searchedRecipes = recipeData;
     // filter is triggered when search keyword is more than 2.
   } else {
     // loop through data to make new array
-    const searchArray = recipeData.filter((element) => {
-      // element = each array inside recipe data
-
-      // title
+    const filteredRecipes = tagSearchedRecipes.length > 0 ? tagSearchedRecipes : searchedRecipes;
+    const searchArray = filteredRecipes.filter((element) => {
+      // title, ingredient, description
       const title = element.name.toLowerCase();
-
-      // ingredients
       const { ingredients } = element;
       const ingredientElements = ingredients.find((el) => el.ingredient.toLowerCase().includes(searchValue));
-
-      // description
       const desc = element.description.toLowerCase();
 
       if (title.includes(searchValue)
@@ -59,19 +57,24 @@ function mainSearch(event) {
       }
     });
     displayData(searchArray);
-    searchedRecipes = searchArray;
-    // console.log('searchedRecipes=', searchedRecipes);
+    if (tagSearchedRecipes.length === 0) {
+      searchedRecipes = searchArray;
+    }
+
     // error message
     if (searchArray.length === 0) {
       noMatch.classList.add('active');
+      displayData([]);
     }
   }
-  console.log(searchedRecipes);
+  // } else if (searchValue.length < 2) {
+  //   displayData(searchedRecipes);
+  // }
 }
 
-/***********************
- advanced filter search
- ***********************/
+/**********************
+advanced filter search
+***********************/
 function filterSearch(event) {
   const searchValue = event.target.value.toLowerCase().trim();
 
@@ -111,8 +114,6 @@ function filterSearch(event) {
   displayIngList(ingArray);
   displayApplianceList(appArray);
   displayUtensilList(utenArray);
-
-  // console.log('searchedRecipes=', searchedRecipes);
 
   // error message when there's no result
   if (ingArray.length <= 0) {
@@ -155,41 +156,55 @@ filter by tag
 // chosen tag's element goes inside filterArray
 const filterArray = [];
 
+// eventListener function
 export function setSearchTag(element, type) {
-  /*******************************
-   1. make array to display recipe
-   *******************************/
+  /*****************************
+  make array to display recipe
+  ******************************/
   // if element doesn't already exist, push into filterArray
   if (!filterArray.includes(element)) {
     filterArray.push(element);
-    // console.log(filterArray);
-
     /*************
-     create tags
+    create tags
     **************/
-    // ingredient
     if (type === 'ingredient') {
       const ingredientTag = document.createElement('button');
       ingredientTag.classList.add('tag', 'ingredient-tag');
-      ingredientTag.innerHTML = `<span class = "ingredient-tag-item tag-item">${element}</span> <i class="fa-regular fa-circle-xmark tag-close"></i>`;
+      ingredientTag.innerHTML = `<span class = "ingredient-tag-item tag-item">${element}</span>`;
+      const closeIcon = document.createElement('span');
+      closeIcon.classList.add('fa-regular', 'fa-circle-xmark', 'close-icon');
+      closeIcon.addEventListener('click', (closeTag));
       tagContainer.append(ingredientTag);
+      ingredientTag.append(closeIcon);
     } else if (type === 'appliance') {
       const applianceTag = document.createElement('button');
       applianceTag.classList.add('tag', 'appliance-tag');
-      applianceTag.innerHTML = `<span class = "appliance-tag-item tag-item">${element}</span> <i class="fa-regular fa-circle-xmark tag-close"></i>`;
+      applianceTag.innerHTML = `<span class = "appliance-tag-item tag-item">${element}</span>`;
+      const closeIcon = document.createElement('span');
+      closeIcon.classList.add('fa-regular', 'fa-circle-xmark', 'close-icon');
+      closeIcon.addEventListener('click', (closeTag));
       tagContainer.append(applianceTag);
+      applianceTag.append(closeIcon);
     } else if (type === 'utensil') {
       const utensilTag = document.createElement('button');
       utensilTag.classList.add('tag', 'utensil-tag');
-      utensilTag.innerHTML = `<span class = "utensil-tag-item tag-item">${element}</span> <i class="fa-regular fa-circle-xmark tag-close"></i>`;
+      utensilTag.innerHTML = `<span class = "utensil-tag-item tag-item">${element}</span>`;
+      const closeIcon = document.createElement('span');
+      closeIcon.classList.add('fa-regular', 'fa-circle-xmark', 'close-icon');
+      closeIcon.addEventListener('click', (closeTag));
       tagContainer.append(utensilTag);
+      utensilTag.append(closeIcon);
     }
   }
-  /*************************************
-   2. compare array and searchedRecipe
-  **************************************/
-  // 필터배열에 있는 요소들이 'searchedRecipes'중 재료/도구/장비 랑 매치된것을 const에 저장.
-  // 저장된 const를 displayData에 넣기
+  searchByTag();
+}
+
+/*************************************
+compare array and searchedRecipe
+**************************************/
+// 필터배열에 있는 요소들이 'searchedRecipes'중 재료/도구/장비 랑 매치된것을 const에 저장.
+// 저장된 const를 displayData에 넣기
+function searchByTag() {
   const searchedElements = searchedRecipes.filter((data) => {
     // element = each array inside recipe data
     // all types of elements are 'array'
@@ -202,21 +217,27 @@ export function setSearchTag(element, type) {
     const { ustensils } = data;
     const uten = ustensils;
 
-    // console.log(app);
     const allElements = [...ing, ...app, ...uten];
 
-    // console.log(allElements);
-    // console.log(filterArray);
-    // console.log(allElements);
-
+    // if filterArray match elements in 'allElements'
     if (filterArray.every(el => allElements.includes(el))) {
       return true;
     }
   });
+  // global scope
+  tagSearchedRecipes = searchedElements;
+  displayData(tagSearchedRecipes);
+}
 
-console.log(searchedElements);
-  searchedRecipes = searchedElements;
-  displayData(searchedElements);
+export function closeTag(e) {
+  displayData(searchedRecipes);
+  const tag = e.target.parentNode;
+  const tagText = e.target.parentNode.childNodes[0].textContent;
+  tag.remove();
+  const selectedTag = filterArray.filter(el => {
+    tagText.includes(el);
+  });
+  filterArray.shift(selectedTag);
 }
 
 input.addEventListener('keyup', mainSearch);

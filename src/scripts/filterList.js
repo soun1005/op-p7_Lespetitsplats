@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable spaced-comment */
 /* eslint-disable import/extensions */
 import { ingFilter, applianceFilter, utensilFilter } from './factory.js';
