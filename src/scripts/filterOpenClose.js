@@ -1,3 +1,6 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable max-len */
 /** ***************
 dom selectors
 ***************** */
@@ -30,9 +33,9 @@ const ingLiContainer = document.querySelector('.ingredient__container');
 const appLiContainer = document.querySelector('.appareil__container');
 const utenLiContainer = document.querySelector('.utensil__container');
 
-/** ********************************
+/**********************************
 ingredient open/close button event
-********************************** */
+***********************************/
 
 function displayIngredient() {
   ingContainer.classList.add('active');
@@ -91,7 +94,6 @@ function removeUtensil() {
   utenInput.value = '';
 }
 
-
 function openFilter(e) {
   const { target } = e;
   if (ingContainer.contains(target)) {
@@ -115,7 +117,9 @@ utenContainer.addEventListener('click', openFilter);
 
 // when outside of filter is clicked, filters all close
 document.addEventListener('click', (e) => {
-  if (!ingContainer.contains(e.target) && !appContainer.contains(e.target) && !utenContainer.contains(e.target)) {
+  // if clicked element is not inside each list containers -> close all
+  const { target } = e;
+  if (!ingContainer.contains(target) && !appContainer.contains(target) && !utenContainer.contains(target)) {
     removeApplicance();
     removeUtensil();
     removeIngredient();

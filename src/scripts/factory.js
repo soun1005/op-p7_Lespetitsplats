@@ -126,7 +126,7 @@ function ingFilter(ingredientArray) {
       ingredientLi.classList.add('col-4', 'mb-1');
       const ingElements = document.createElement('span');
       ingElements.textContent = ingredient;
-      ingElements.classList.add('ing-list-element');
+      ingElements.classList.add('ing-list-element', 'list-elements');
       ingElements.addEventListener('click', () => {
         setSearchTag(ingredient, 'ingredient');
       });
@@ -144,7 +144,7 @@ function applianceFilter(applianceArray) {
       applianceLi.classList.add('col-4', 'mb-1');
       const appElements = document.createElement('span');
       appElements.textContent = appliance;
-      appElements.classList.add('app-list-element');
+      appElements.classList.add('app-list-element', 'list-elements');
       appElements.addEventListener('click', () => {
         setSearchTag(appliance, 'appliance');
       });
@@ -162,7 +162,7 @@ function utensilFilter(utensilArray) {
       utensilLi.classList.add('col-4', 'mb-1');
       const utenElements = document.createElement('span');
       utenElements.textContent = utensil;
-      utenElements.classList.add('uten-list-element');
+      utenElements.classList.add('uten-list-element', 'list-elements');
       utenElements.addEventListener('click', () => {
         setSearchTag(utensil, 'utensil');
       });

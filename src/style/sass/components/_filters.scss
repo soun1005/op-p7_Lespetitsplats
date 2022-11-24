@@ -24,7 +24,7 @@
             align-items: center;
             top: 0;
             justify-content: space-between;
-            color: #fff;
+            color: $c-white;
             height: 4.5rem;
             padding: 21px;
             width: 10rem;
@@ -130,9 +130,13 @@ width: 35rem;
     left: 12px;
     border-radius: 0 0 5px 5px;
     &::-webkit-scrollbar { background: none; width: 0; }
+    // lists
     span {
         color: $c-white;
         font-size: 12px;
+        &.active {
+            color: $c-grey;
+        }
     }
 }
 .appareil__container.active{
@@ -146,9 +150,13 @@ width: 35rem;
     left: 12px;
     border-radius: 0 0 5px 5px;
     &::-webkit-scrollbar { background: none; width: 0; }
+    // lists
     span {
         color: $c-white;
         font-size: 12px;
+        &.active {
+            color: $c-grey;
+        }
     }
 }
 
@@ -163,9 +171,13 @@ width: 35rem;
     left: 12px;
     border-radius: 0 0 5px 5px;
     &::-webkit-scrollbar { background: none; width: 0; }
+    // lists
     span {
         color: $c-white;
         font-size: 12px;
+        &.active {
+            color: $c-grey;
+        }
     }
 }
 
