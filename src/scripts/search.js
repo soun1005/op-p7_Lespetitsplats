@@ -18,20 +18,23 @@ const noMatch = document.querySelector('.no-match');
 const ingInput = document.getElementById('ing-input');
 const appInput = document.getElementById('app-input');
 const utenInput = document.getElementById('uten-input');
+// filterArray contains the tags that are made by clicking elements
 const filterArray = [];
 let searchedRecipes = recipeData;
 
+// searchFromSearchBar => filterBySearchBar (naming changed)
 function searchFromSearchBar(recipesArray) {
   const searchValue = input.value.toLowerCase().trim();
 
   if (searchValue.length < 3) {
-    // if user type less than 3 characters, return original data
+    // if user type less than 3 characters,
+    // return original data = don't filter anything
     return recipesArray;
   }
   // else
-  // filter original data to extract and compare ingredient/title/description
+  // filter original data to extract and
+  // compare ingredient/title/description VS searched value
   return recipesArray.filter((element) => {
-    // title, ingredient, description
     const title = element.name.toLowerCase();
     const { ingredients } = element;
     const ingredientElements = ingredients.find((el) => el.ingredient.toLowerCase().includes(searchValue));
@@ -47,7 +50,6 @@ function searchFromSearchBar(recipesArray) {
 }
 
 function filterByTags() {
-  // filter original data by 'filterArray'
   return recipeData.filter((data) => {
     // extract ingredient/appliance/utensil from original data
     const { ingredients } = data;
@@ -62,12 +64,14 @@ function filterByTags() {
     const allElements = [...ing, ...app, ...uten];
 
     // if filterArray match elements in 'allElements'
+    // filterArray = array with filter elements that user clicked
     if (filterArray.every(el => allElements.includes(el))) {
       return true;
     }
   });
 }
 
+// to display error message when there is no recipe that matches
 function displayNoMatch(hasMatch) {
   if (hasMatch) {
     noMatch.classList.remove('active');
@@ -76,8 +80,16 @@ function displayNoMatch(hasMatch) {
   }
 }
 
-function mainSearch() {
+/**************************************************
+** mainSearch => displayLastResult (naming changed)
+This function decide which function to trigger
+based on the existance of tag
+simply, if there is no tag, filter by main searchbar,
+if there are tags, filter by tags
+***************************************************/
+function displayLastResult() {
   const hasTags = filterArray.length > 0;
+  // hasTags = when filterArray has something
   let filteredByTag = [];
 
   // if filterArray contains something,
@@ -88,7 +100,8 @@ function mainSearch() {
   // if there are tags => filteredByTag // no tags => original data
   const recipesToSearchIn = hasTags ? filteredByTag : recipeData;
   const fullyFilteredArray = searchFromSearchBar(recipesToSearchIn);
-  // display recipes
+
+  // display recipes by the result of all filters
   displayData(fullyFilteredArray);
 
   const hasMatch = fullyFilteredArray.length > 0;
@@ -103,8 +116,9 @@ function closeTag(e) {
   const selectedTag = filterArray.filter(el => {
     tagText.includes(el);
   });
+  // selected tag is removed from filterArray and displayLastResult function is triggered
   filterArray.shift(selectedTag);
-  mainSearch();
+  displayLastResult();
 }
 
 /****************************************************
@@ -115,7 +129,7 @@ export function setSearchTag(element, type) {
   if (!filterArray.includes(element)) {
     /****************************************
     1. if tag doesn't exist in 'filterArray'
-      add element to 'filterArray'
+    add element to 'filterArray'
     *****************************************/
     filterArray.push(element);
     /***************
@@ -150,9 +164,17 @@ export function setSearchTag(element, type) {
       utensilTag.append(closeIcon);
     }
   }
-  mainSearch();
+  displayLastResult();
 }
 
+/******************************************
+This function filter each filter lists
+by the value that user type.
+    1. 3 each filters have an array where
+    they contain the searched value
+    2. display list container by the array
+    3. if array is empty, show 'no results'
+*******************************************/
 function filterSearch(event) {
   const searchValue = event.target.value.toLowerCase().trim();
 
@@ -161,6 +183,7 @@ function filterSearch(event) {
   const appArray = [];
   const utenArray = [];
 
+  // on a fully filtered recipe, check if it contains searched value
   searchedRecipes.forEach((element) => {
     const { ingredients } = element;
     ingredients.forEach((el) => {
@@ -189,6 +212,7 @@ function filterSearch(event) {
     });
   });
 
+  // pass filtered value inside array to display filtered recipe
   displayIngList(ingArray);
   displayApplianceList(appArray);
   displayUtensilList(utenArray);
@@ -222,7 +246,7 @@ function filterSearch(event) {
   }
 }
 
-input.addEventListener('keyup', mainSearch);
+input.addEventListener('keyup', displayLastResult);
 ingInput.addEventListener('keyup', filterSearch);
 appInput.addEventListener('keyup', filterSearch);
 utenInput.addEventListener('keyup', filterSearch);
