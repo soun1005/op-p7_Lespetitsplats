@@ -207,11 +207,13 @@ function filterSearch(event) {
   displayApplianceList(appArray);
   displayUtensilList(utenArray);
 
+  const noResultMsg = 'Aucun résultat';
+
   // error message when there's no result
   if (ingArray.length <= 0) {
     const listContainer = document.querySelector('.ingredient__container');
     const errorMsg = document.createElement('span');
-    errorMsg.textContent = 'Aucun résultat';
+    errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
   } else if (ingArray > 1) {
     displayIngList(ingArray);
@@ -220,7 +222,7 @@ function filterSearch(event) {
   if (appArray.length <= 0) {
     const listContainer = document.querySelector('.appareil__container');
     const errorMsg = document.createElement('span');
-    errorMsg.textContent = 'Aucun résultat';
+    errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
   } else if (appArray > 1) {
     displayApplianceList(appArray);
@@ -229,7 +231,7 @@ function filterSearch(event) {
   if (utenArray.length <= 0) {
     const listContainer = document.querySelector('.utensil__container');
     const errorMsg = document.createElement('span');
-    errorMsg.textContent = 'Aucun résultat';
+    errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
   } else if (utenArray > 1) {
     displayUtensilList(utenArray);
