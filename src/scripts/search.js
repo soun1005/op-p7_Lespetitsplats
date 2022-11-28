@@ -7,14 +7,13 @@
 /* eslint-disable max-len */
 /* eslint-disable arrow-parens */
 /* eslint-disable import/extensions */
-
 import { displayData } from './index.js';
 import recipeData from '../data/recipes.js';
 import { displayIngList, displayApplianceList, displayUtensilList } from './filterList.js';
+import { displayNoMatch } from './displayNoMatch.js';
 
 const input = document.getElementById('input-form');
 const tagContainer = document.querySelector('.tag-container');
-const noMatch = document.querySelector('.no-match');
 const ingInput = document.getElementById('ing-input');
 const appInput = document.getElementById('app-input');
 const utenInput = document.getElementById('uten-input');
@@ -69,15 +68,6 @@ function filterByTags() {
       return true;
     }
   });
-}
-
-// to display error message when there is no recipe that matches
-function displayNoMatch(hasMatch) {
-  if (hasMatch) {
-    noMatch.classList.remove('active');
-  } else {
-    noMatch.classList.add('active');
-  }
 }
 
 /**************************************************
