@@ -7,6 +7,7 @@ dom selectors
 
 // filter elements container
 const ingContainer = document.querySelector('.filters__ingredient');
+// console.log(ingContainer.childNodes);
 const appContainer = document.querySelector('.filters__appareil');
 const utenContainer = document.querySelector('.filters__utensil');
 
@@ -32,6 +33,9 @@ const utenIcon = document.querySelector('.uten-input-icon');
 const ingLiContainer = document.querySelector('.ingredient__container');
 const appLiContainer = document.querySelector('.appareil__container');
 const utenLiContainer = document.querySelector('.utensil__container');
+
+// const listElements = document.querySelectorAll('.list-elements');
+const filtersWrap = document.querySelectorAll('.filters-wrap');
 
 /**********************************
 ingredient open/close button event
@@ -116,12 +120,12 @@ appContainer.addEventListener('click', openFilter);
 utenContainer.addEventListener('click', openFilter);
 
 // when outside of filter is clicked, filters all close
-document.addEventListener('click', (e) => {
-  // if clicked element is not inside each list containers -> close all
-  const { target } = e;
-  if (!ingContainer.contains(target) && !appContainer.contains(target) && !utenContainer.contains(target)) {
-    removeApplicance();
-    removeUtensil();
-    removeIngredient();
-  }
+document.addEventListener('click', () => {
+  removeApplicance();
+  removeUtensil();
+  removeIngredient();
 });
+
+filtersWrap.forEach((el) => el.addEventListener('click', (e) => {
+  e.stopPropagation();
+}));
