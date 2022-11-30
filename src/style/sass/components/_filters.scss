@@ -53,7 +53,7 @@
         }
     }
 
-    .appareil-input {
+    .appliance-input {
         background-color:#68D9A4;
         color: $c-white;
         &.active {
@@ -105,7 +105,7 @@
 
 // individual filter container
 .filters__ingredient.active,
-.filters__appareil.active,
+.filters__appliance.active,
 .filters__utensil.active {
 width: 35rem;
 }
@@ -139,7 +139,7 @@ width: 35rem;
         }
     }
 }
-.appareil__container.active{
+.appliance__container.active{
     display: flex;
     width: inherit;
     max-height: 20rem;

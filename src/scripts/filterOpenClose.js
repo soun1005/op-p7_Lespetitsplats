@@ -8,12 +8,12 @@ dom selectors
 // filter elements container
 const ingContainer = document.querySelector('.filters__ingredient');
 // console.log(ingContainer.childNodes);
-const appContainer = document.querySelector('.filters__appareil');
+const appContainer = document.querySelector('.filters__appliance');
 const utenContainer = document.querySelector('.filters__utensil');
 
 // inputs
 const ingInput = document.querySelector('.ingredient-input');
-const appInput = document.querySelector('.appareil-input');
+const appInput = document.querySelector('.appliance-input');
 const utenInput = document.querySelector('.utensil-input');
 
 // labels
@@ -31,7 +31,7 @@ const utenIcon = document.querySelector('.uten-input-icon');
 
 // list containers
 const ingLiContainer = document.querySelector('.ingredient__container');
-const appLiContainer = document.querySelector('.appareil__container');
+const appLiContainer = document.querySelector('.appliance__container');
 const utenLiContainer = document.querySelector('.utensil__container');
 
 // const listElements = document.querySelectorAll('.list-elements');

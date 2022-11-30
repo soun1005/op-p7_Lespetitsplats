@@ -26,9 +26,9 @@ async function displayApplianceList(applianceArray) {
   const applianceListDiv = applianceFilter(applianceArray);
   const applianceList = applianceListDiv.makeApplianceList();
 
-  const applianceContainer = document.querySelector('.appareil__container');
+  const applianceContainer = document.querySelector('.appliance__container');
   applianceContainer.innerHTML = '';
-  const appFilterDiv = document.querySelector('.filters__appareil');
+  const appFilterDiv = document.querySelector('.filters__appliance');
   appFilterDiv.append(applianceContainer);
   applianceContainer.append(...applianceList);
 }
