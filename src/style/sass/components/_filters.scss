@@ -41,11 +41,9 @@
         background-color:#3282F7;
         color: $c-white;
         &.active {
-            width: 100%;
-            border-radius: 5px 5px 0 0;
+            @include filter-input-active;
             &::placeholder {
-                color: $c-white;
-                opacity: 0.5;
+                @include filter-placeholder;
             }
             &:focus::placeholder{
                 color: transparent;
@@ -57,11 +55,9 @@
         background-color:#68D9A4;
         color: $c-white;
         &.active {
-            width: 100%;
-            border-radius: 5px 5px 0 0;
+            @include filter-input-active;
             &::placeholder {
-                color: $c-white;
-                opacity: 0.5;
+                @include filter-placeholder;
             }
             &:focus::placeholder{
                 color: transparent;
@@ -72,11 +68,9 @@
         background-color:#ED6454;
         color: $c-white;
         &.active {
-            width: 100%;
-            border-radius: 5px 5px 0 0;
+            @include filter-input-active;
             &::placeholder {
-                color: $c-white;
-                opacity: 0.5;
+                @include filter-placeholder;
             }
             &:focus::placeholder{
                 color: transparent;
@@ -99,7 +93,6 @@
     }
 }
 
-
 // input display control 
 // when clicked -> 'active' class is added.
 
@@ -117,68 +110,16 @@ width: 35rem;
     display: none;
 }
 
-
 // list containers
 .ingredient__container.active{
-    display: flex;
-    width: inherit;
-    max-height: 20rem;
-    background-color: #3282F7;
-    overflow: scroll;
-    position: absolute;
-    z-index: 9999;
-    left: 12px;
-    border-radius: 0 0 5px 5px;
-    &::-webkit-scrollbar { background: none; width: 0; }
-    // lists
-    span {
-        color: $c-white;
-        font-size: 12px;
-        &.active {
-            color: $c-grey;
-        }
-    }
+    @include filter-list-active($c-ingredeint);
 }
 .appliance__container.active{
-    display: flex;
-    width: inherit;
-    max-height: 20rem;
-    background-color: #68D9A4;
-    overflow: scroll;
-    position: absolute;
-    z-index: 9999;
-    left: 12px;
-    border-radius: 0 0 5px 5px;
-    &::-webkit-scrollbar { background: none; width: 0; }
-    // lists
-    span {
-        color: $c-white;
-        font-size: 12px;
-        &.active {
-            color: $c-grey;
-        }
-    }
+    @include filter-list-active($c-appliance);
 }
 
 .utensil__container.active {
-    display: flex;
-    width: inherit;
-    max-height: 20rem;
-    background-color: #ED6454;
-    overflow: scroll;
-    position: absolute;
-    z-index: 9999;
-    left: 12px;
-    border-radius: 0 0 5px 5px;
-    &::-webkit-scrollbar { background: none; width: 0; }
-    // lists
-    span {
-        color: $c-white;
-        font-size: 12px;
-        &.active {
-            color: $c-grey;
-        }
-    }
+    @include filter-list-active($c-utensil);
 }
 
 // icons
