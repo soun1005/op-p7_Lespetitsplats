@@ -169,9 +169,6 @@
   color: #fff;
   font-size: 12px;
 }
-.ingredient__container.active span.active {
-  color: #e7e7e7;
-}
 
 .appliance__container.active {
   display: flex;
@@ -192,9 +189,6 @@
   color: #fff;
   font-size: 12px;
 }
-.appliance__container.active span.active {
-  color: #e7e7e7;
-}
 
 .utensil__container.active {
   display: flex;
@@ -214,9 +208,6 @@
 .utensil__container.active span {
   color: #fff;
   font-size: 12px;
-}
-.utensil__container.active span.active {
-  color: #e7e7e7;
 }
 
 .ing-input-icon.active,
