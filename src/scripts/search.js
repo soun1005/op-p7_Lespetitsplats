@@ -22,7 +22,7 @@ const filterArray = [];
 let searchedRecipes = recipeData;
 
 // searchFromSearchBar => filterBySearchBar (naming changed)
-function searchFromSearchBar(recipesArray) {
+function filterBySearchBar(recipesArray) {
   const searchValue = input.value.toLowerCase().trim();
 
   if (searchValue.length < 3) {
@@ -89,7 +89,7 @@ function displayLastResult() {
 
   // if there are tags => filteredByTag // no tags => original data
   const recipesToSearchIn = hasTags ? filteredByTag : recipeData;
-  const fullyFilteredArray = searchFromSearchBar(recipesToSearchIn);
+  const fullyFilteredArray = filterBySearchBar(recipesToSearchIn);
 
   // display recipes by the result of all filters
   displayData(fullyFilteredArray);
