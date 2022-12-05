@@ -123,7 +123,7 @@ function ingFilter(ingredientArray) {
   function makeIngList() {
     return ingredientArray.map((ingredient) => {
       const ingredientLi = document.createElement('div');
-      ingredientLi.classList.add('col-4', 'mb-1');
+      ingredientLi.classList.add('col-xl-4', 'col-12', 'mb-1');
       const ingElements = document.createElement('span');
       ingElements.textContent = ingredient;
       ingElements.classList.add('ing-list-element', 'list-elements');
@@ -141,7 +141,7 @@ function applianceFilter(applianceArray) {
   function makeApplianceList() {
     return applianceArray.map((appliance) => {
       const applianceLi = document.createElement('div');
-      applianceLi.classList.add('col-4', 'mb-1');
+      applianceLi.classList.add('col-xl-4', 'col-12', 'mb-1');
       const appElements = document.createElement('span');
       appElements.textContent = appliance;
       appElements.classList.add('app-list-element', 'list-elements');
@@ -159,7 +159,7 @@ function utensilFilter(utensilArray) {
   function makeUtensilList() {
     return utensilArray.map((utensil) => {
       const utensilLi = document.createElement('div');
-      utensilLi.classList.add('col-4', 'mb-1');
+      utensilLi.classList.add('col-xl-4', 'col-12', 'mb-1');
       const utenElements = document.createElement('span');
       utenElements.textContent = utensil;
       utenElements.classList.add('uten-list-element', 'list-elements');

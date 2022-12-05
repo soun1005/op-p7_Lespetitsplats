@@ -5,14 +5,14 @@
 
 @mixin filter-list-active($background-color) {
     display: flex;
-    width: inherit;
     max-height: 20rem;
     background-color: $background-color;
     overflow: scroll;
     position: absolute;
     z-index: 9999;
-    left: 12px;
     border-radius: 0 0 5px 5px;
+    width: calc(30rem - 24px);
+    left: 24px;
     // scroll bar
     &::-webkit-scrollbar { 
         background: none; 

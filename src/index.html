@@ -48,8 +48,11 @@
       <div class="tag-container container-fluid"></div>
       <!-- filter buttons + input -->
       <!-- ingredient filter -->
-      <div class="filters container-fluid">
-        <div class="filters-wrap filters__ingredient">
+      <div class="filters container-fluid row">
+        <!-- small screen : col-12 / large screen : col-xl-2 -->
+        <div
+          class="filters-wrap filters__ingredient col-xl-2 col-lg-2 col-md-3 col-sm-12"
+        >
           <input
             type="text"
             id="ing-input"
@@ -66,7 +69,9 @@
         </div>
 
         <!-- appliance filter -->
-        <div class="filters-wrap filters__appliance">
+        <div
+          class="filters-wrap filters__appliance col-xl-2 col-lg-2 col-md-3 col-sm-12"
+        >
           <input
             type="text"
             id="app-input"
@@ -82,7 +87,9 @@
           <div class="row appliance__container list-container"></div>
         </div>
         <!-- utensils filter -->
-        <div class="filters-wrap filters__utensil">
+        <div
+          class="filters-wrap filters__utensil col-xl-2 col-lg-2 col-md-3 col-sm-12"
+        >
           <input
             type="text"
             id="uten-input"

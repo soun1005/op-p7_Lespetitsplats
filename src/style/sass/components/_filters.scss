@@ -1,10 +1,18 @@
 .filters {
     display: flex;
+    @media screen and (max-width: 768px) {
+        margin: 0;
+    }
+
     // filter wraps 
     &-wrap {
-        margin-right: 1rem;
         position: relative;
         margin-bottom: 2rem;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 1rem;
+            padding: 0;
+        }
+        // 3 inputs common style
         &__input {
             top: 0;
             border-radius: 5px;
@@ -13,6 +21,19 @@
             width: 10rem;
             cursor: pointer;
             padding-left: 1rem;
+            color: $c-white;
+                &.active {
+                    @include filter-input-active;
+                    &::placeholder {
+                        @include filter-placeholder;
+                    }
+                    &:focus::placeholder{
+                        color: transparent;
+                    }
+                }
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
             &::placeholder {
                 color: transparent;
             }
@@ -29,6 +50,11 @@
             padding: 21px;
             width: 10rem;
             cursor: pointer;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                padding-left: 1rem;
+                padding-right: 2rem;
+            }
         }
         // <p> label
         &__label {
@@ -39,51 +65,22 @@
 // each input styles
     .ingredient-input {
         background-color:#3282F7;
-        color: $c-white;
-        &.active {
-            @include filter-input-active;
-            &::placeholder {
-                @include filter-placeholder;
-            }
-            &:focus::placeholder{
-                color: transparent;
-            }
-        }
     }
 
     .appliance-input {
         background-color:#68D9A4;
-        color: $c-white;
-        &.active {
-            @include filter-input-active;
-            &::placeholder {
-                @include filter-placeholder;
-            }
-            &:focus::placeholder{
-                color: transparent;
-            }
-        }
     }
     .utensil-input {
         background-color:#ED6454;
-        color: $c-white;
-        &.active {
-            @include filter-input-active;
-            &::placeholder {
-                @include filter-placeholder;
-            }
-            &:focus::placeholder{
-                color: transparent;
-            }
-        }
     }
+
 
     // elements container
     .list-container {
         display: none;
-    span {
-        cursor: pointer;
-    }
+        span {
+            cursor: pointer;
+        }
     }
 
     .ing-input-icon,
@@ -93,14 +90,19 @@
     }
 }
 
-// input display control 
-// when clicked -> 'active' class is added.
-
+/**************
+active classes
+***************/ 
 // individual filter container
 .filters__ingredient.active,
 .filters__appliance.active,
 .filters__utensil.active {
-width: 35rem;
+    // @mixin filter-list-active
+    width: 30rem;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        min-width: none;
+    }
 }
 
 // label on input
@@ -122,6 +124,14 @@ width: 35rem;
     @include filter-list-active($c-utensil);
 }
 
+// list containers common style
+.list-container.active {
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        left: 12px;
+    }
+}
+
 // icons
 .ing-input-icon.active,
 .app-input-icon.active,
@@ -130,5 +140,5 @@ width: 35rem;
     position: absolute;
     color: $c-white;
     top: 27px;
-    right: 17px;
+    right: 31px;
 }
