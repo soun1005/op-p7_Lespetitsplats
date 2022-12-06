@@ -8,11 +8,14 @@
     &-wrap {
         position: relative;
         margin-bottom: 2rem;
-        @media screen and (max-width: 768px) {
-            margin-bottom: 1rem;
-            padding: 0;
+        &.active {
+            width: 30rem;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                min-width: none;
+            }
         }
-        // 3 inputs common style
+        //filters-wrap__input : 3 inputs common style
         &__input {
             top: 0;
             border-radius: 5px;
@@ -23,23 +26,23 @@
             cursor: pointer;
             padding-left: 1rem;
             color: $c-white;
-                &.active {
-                    @include filter-input-active;
-                    &::placeholder {
-                        @include filter-placeholder;
-                    }
-                    &:focus::placeholder{
-                        color: transparent;
-                    }
+            &::placeholder {
+                color: transparent;
+            }
+            &.active {
+                @include filter-input-active;
+                &::placeholder {
+                    @include filter-placeholder;
                 }
+                &:focus::placeholder{
+                    color: transparent;
+                }
+            }
             @media screen and (max-width: 1100px) {
                 width: 153px;
             }
             @media screen and (max-width: 768px) {
                 width: 100%;
-            }
-            &::placeholder {
-                color: transparent;
             }
         }
         // label wrap
@@ -54,6 +57,10 @@
             padding: 21px;
             width: 171px;
             cursor: pointer;
+            &.active {
+                display: none;
+            }
+            // filters-wrap__label-wrap mediaquary
             @media screen and (max-width: 1100px) {
                 width: 153px;
             }
@@ -68,7 +75,20 @@
             margin-bottom: 0;
         }
 
+    // elements container
+    .list-container {
+        display: none;
+        span {
+            cursor: pointer;
+        }
     }
+
+    // filters-wrap mediaquery
+    @media screen and (max-width: 768px) {
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+}
 // each input styles
     .ingredient-input {
         background-color:#3282F7;
@@ -81,15 +101,6 @@
         background-color:#ED6454;
     }
 
-
-    // elements container
-    .list-container {
-        display: none;
-        span {
-            cursor: pointer;
-        }
-    }
-
     .ing-input-icon,
     .app-input-icon,
     .uten-input-icon {
@@ -100,24 +111,6 @@
 /**************
 active classes
 ***************/ 
-// individual filter container
-.filters__ingredient.active,
-.filters__appliance.active,
-.filters__utensil.active {
-    // @mixin filter-list-active
-    width: 30rem;
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        min-width: none;
-    }
-}
-
-// label on input
-.ing-label.active,
-.app-label.active,
-.uten-label.active {
-    display: none;
-}
 
 // list containers
 .ingredient__container.active{
@@ -129,14 +122,6 @@ active classes
 
 .utensil__container.active {
     @include filter-list-active($c-utensil);
-}
-
-// list containers common style
-.list-container.active {
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        left: 12px;
-    }
 }
 
 // icons
