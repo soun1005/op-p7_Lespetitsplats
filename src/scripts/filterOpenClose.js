@@ -30,12 +30,10 @@ const appIcon = document.querySelector('.app-input-icon');
 const utenIcon = document.querySelector('.uten-input-icon');
 
 // list containers
+const listContainer = document.querySelectorAll('.list-container');
 const ingLiContainer = document.querySelector('.ingredient__container');
 const appLiContainer = document.querySelector('.appliance__container');
 const utenLiContainer = document.querySelector('.utensil__container');
-
-// const listElements = document.querySelectorAll('.list-elements');
-const filtersWrap = document.querySelectorAll('.filters-wrap');
 
 /**********************************
 ingredient open/close button event
@@ -120,12 +118,18 @@ appContainer.addEventListener('click', openFilter);
 utenContainer.addEventListener('click', openFilter);
 
 // when outside of filter is clicked, filters all close
-document.addEventListener('click', () => {
-  removeApplicance();
-  removeUtensil();
-  removeIngredient();
+document.addEventListener('click', (e) => {
+  const { target } = e;
+  if (!target.classList.contains('filters-wrap__label')
+  && !target.classList.contains('filters-wrap__label-wrap')
+  && !target.classList.contains('fa-chevron-down')
+  && !target.classList.contains('filters-wrap__input')) {
+    removeApplicance();
+    removeUtensil();
+    removeIngredient();
+  }
 });
 
-filtersWrap.forEach((el) => el.addEventListener('click', (e) => {
+listContainer.forEach((el) => el.addEventListener('click', (e) => {
   e.stopPropagation();
 }));

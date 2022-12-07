@@ -10,6 +10,15 @@
   position: relative;
   margin-bottom: 2rem;
 }
+.filters-wrap.active {
+  width: 30rem;
+}
+@media screen and (max-width: 768px) {
+  .filters-wrap.active {
+    width: 100%;
+    min-width: none;
+  }
+}
 @media screen and (max-width: 768px) {
   .filters-wrap {
     margin-bottom: 1rem;
@@ -25,6 +34,15 @@
   cursor: pointer;
   padding-left: 1rem;
   color: #fff;
+}
+.filters-wrap__input::-moz-placeholder {
+  color: transparent;
+}
+.filters-wrap__input:-ms-input-placeholder {
+  color: transparent;
+}
+.filters-wrap__input::placeholder {
+  color: transparent;
 }
 .filters-wrap__input.active {
   width: 100%;
@@ -61,15 +79,6 @@
     width: 100%;
   }
 }
-.filters-wrap__input::-moz-placeholder {
-  color: transparent;
-}
-.filters-wrap__input:-ms-input-placeholder {
-  color: transparent;
-}
-.filters-wrap__input::placeholder {
-  color: transparent;
-}
 .filters-wrap__label-wrap {
   position: absolute;
   display: flex;
@@ -81,6 +90,9 @@
   padding: 21px;
   width: 171px;
   cursor: pointer;
+}
+.filters-wrap__label-wrap.active {
+  display: none;
 }
 @media screen and (max-width: 1100px) {
   .filters-wrap__label-wrap {
@@ -97,6 +109,18 @@
 .filters-wrap__label {
   margin-bottom: 0;
 }
+.filters-wrap .list-container {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .filters-wrap .list-container.active {
+    width: 100%;
+    left: 12px;
+  }
+}
+.filters-wrap .list-container span {
+  cursor: pointer;
+}
 .filters .ingredient-input {
   background-color: #3282F7;
 }
@@ -105,12 +129,6 @@
 }
 .filters .utensil-input {
   background-color: #ED6454;
-}
-.filters .list-container {
-  display: none;
-}
-.filters .list-container span {
-  cursor: pointer;
 }
 .filters .ing-input-icon,
 .filters .app-input-icon,
@@ -121,26 +139,6 @@
 /**************
 active classes
 ***************/
-.filters__ingredient.active,
-.filters__appliance.active,
-.filters__utensil.active {
-  width: 30rem;
-}
-@media screen and (max-width: 768px) {
-  .filters__ingredient.active,
-.filters__appliance.active,
-.filters__utensil.active {
-    width: 100%;
-    min-width: none;
-  }
-}
-
-.ing-label.active,
-.app-label.active,
-.uten-label.active {
-  display: none;
-}
-
 .ingredient__container.active {
   display: flex;
   max-height: 20rem;
@@ -201,11 +199,8 @@ active classes
   font-size: 12px;
 }
 
-@media screen and (max-width: 768px) {
-  .list-container.active {
-    width: 100%;
-    left: 12px;
-  }
+.fa-chevron-up {
+  cursor: pointer;
 }
 
 .ing-input-icon.active,
@@ -240,13 +235,6 @@ active classes
   flex-direction: row;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
-  .tag-container .tag {
-    justify-content: space-between;
-    width: 32%;
-    margin: 0 0 10px 2px;
-  }
-}
 .tag-container .tag-item {
   margin-right: 10px;
   white-space: nowrap;
@@ -256,6 +244,13 @@ active classes
 .tag-container .tag .close-icon {
   font-size: 20px;
   color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .tag-container .tag {
+    justify-content: space-between;
+    width: 32%;
+    margin: 0 0 10px 2px;
+  }
 }
 .tag-container .ingredient-tag {
   background-color: #3282F7;
