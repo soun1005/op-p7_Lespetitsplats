@@ -35,6 +35,10 @@ const ingLiContainer = document.querySelector('.ingredient__container');
 const appLiContainer = document.querySelector('.appliance__container');
 const utenLiContainer = document.querySelector('.utensil__container');
 
+// // input
+// const filtersInput = document.querySelectorAll('.filters-wrap__input');
+// // console.log(filtersInput);
+
 /**********************************
 ingredient open/close button event
 ***********************************/
@@ -46,6 +50,8 @@ function displayIngredient() {
   ingLabelText.style.display = 'none';
   ingIcon.classList.add('active');
   ingLabel.style.display = 'none';
+  appInput.value = '';
+  utenInput.value = '';
 }
 
 function displayAppliance() {
@@ -55,6 +61,8 @@ function displayAppliance() {
   appLabelText.style.display = 'none';
   appIcon.classList.add('active');
   appLabel.style.display = 'none';
+  ingInput.value = '';
+  utenInput.value = '';
 }
 
 function displayUtensil() {
@@ -64,6 +72,8 @@ function displayUtensil() {
   utenLabelText.style.display = 'none';
   utenIcon.classList.add('active');
   utenLabel.style.display = 'none';
+  ingInput.value = '';
+  appInput.value = '';
 }
 
 function removeIngredient() {

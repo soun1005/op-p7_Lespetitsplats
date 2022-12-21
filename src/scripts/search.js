@@ -166,8 +166,9 @@ by the value that user type.
     3. if array is empty, show 'no results'
 *******************************************/
 function filterSearch(event) {
+  const inputId = event.target.id;
   const searchValue = event.target.value.toLowerCase().trim();
-
+  // console.log(inputId);
   // searched value goes inside each array
   const ingArray = [];
   const appArray = [];
@@ -175,66 +176,59 @@ function filterSearch(event) {
 
   // on a fully filtered recipe, check if it contains searched value
   searchedRecipes.forEach((element) => {
-    const { ingredients } = element;
-    ingredients.forEach((el) => {
-      if (el.ingredient.toLowerCase().includes(searchValue)
+    const { ingredients, appliance, ustensils } = element;
+    if (inputId === 'ing-input') {
+      ingredients.forEach((el) => {
+        if (el.ingredient.toLowerCase().includes(searchValue)
       && !ingArray.includes(el.ingredient)) {
-        ingArray.push(el.ingredient);
-      }
-    });
-  });
-
-  searchedRecipes.forEach((element) => {
-    const { appliance } = element;
-    if (appliance.toLowerCase().includes(searchValue)
+          ingArray.push(el.ingredient);
+        }
+      });
+    }
+    if (inputId === 'app-input') {
+      if (appliance.toLowerCase().includes(searchValue)
     && !appArray.includes(appliance)) {
-      appArray.push(appliance);
+        appArray.push(appliance);
+      }
+    }
+
+    if (inputId === 'uten-input') {
+      ustensils.forEach((utensil) => {
+        if (utensil.toLowerCase().includes(searchValue)
+      && !utenArray.includes(utensil)) {
+          utenArray.push(utensil);
+        }
+      });
     }
   });
 
-  searchedRecipes.forEach((element) => {
-    const { ustensils } = element;
-    ustensils.forEach((utensil) => {
-      if (utensil.toLowerCase().includes(searchValue)
-      && !utenArray.includes(utensil)) {
-        utenArray.push(utensil);
-      }
-    });
-  });
-
   // pass filtered value inside array to display filtered recipe
-  displayIngList(ingArray);
-  displayApplianceList(appArray);
-  displayUtensilList(utenArray);
+  if (inputId === 'ing-input') displayIngList(ingArray);
+  if (inputId === 'app-input') displayApplianceList(appArray);
+  if (inputId === 'uten-input') displayUtensilList(utenArray);
 
   const noResultMsg = 'Aucun résultat';
 
   // error message when there's no result
-  if (ingArray.length <= 0) {
+  if (ingArray.length <= 0 && inputId === 'ing-input') {
     const listContainer = document.querySelector('.ingredient__container');
     const errorMsg = document.createElement('span');
     errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
-  } else if (ingArray > 1) {
-    displayIngList(ingArray);
   }
 
-  if (appArray.length <= 0) {
-    const listContainer = document.querySelector('.appareil__container');
+  if (appArray.length <= 0 && inputId === 'app-input') {
+    const listContainer = document.querySelector('.appliance__container');
     const errorMsg = document.createElement('span');
     errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
-  } else if (appArray > 1) {
-    displayApplianceList(appArray);
   }
 
-  if (utenArray.length <= 0) {
+  if (utenArray.length <= 0 && inputId === 'uten-input') {
     const listContainer = document.querySelector('.utensil__container');
     const errorMsg = document.createElement('span');
     errorMsg.textContent = noResultMsg;
     listContainer.append(errorMsg);
-  } else if (utenArray > 1) {
-    displayUtensilList(utenArray);
   }
 }
 
