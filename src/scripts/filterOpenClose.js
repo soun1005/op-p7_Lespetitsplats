@@ -84,6 +84,8 @@ function removeIngredient() {
   ingIcon.classList.remove('active');
   ingLabel.style.display = 'flex';
   ingInput.value = '';
+  appInput.value = '';
+  utenInput.value = '';
 }
 
 function removeApplicance() {
@@ -93,7 +95,9 @@ function removeApplicance() {
   appLiContainer.classList.remove('active');
   appLabelText.style.display = 'flex';
   appIcon.classList.remove('active');
+  ingInput.value = '';
   appInput.value = '';
+  utenInput.value = '';
 }
 
 function removeUtensil() {
@@ -103,6 +107,8 @@ function removeUtensil() {
   utenContainer.classList.remove('active');
   utenLabelText.style.display = 'flex';
   utenIcon.classList.remove('active');
+  ingInput.value = '';
+  appInput.value = '';
   utenInput.value = '';
 }
 
