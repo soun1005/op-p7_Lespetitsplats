@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
 /* eslint-disable array-callback-return */
 /* eslint-disable consistent-return */
@@ -33,19 +34,28 @@ function filterBySearchBar(recipesArray) {
   // else
   // filter original data to extract and
   // compare ingredient/title/description VS searched value
-  return recipesArray.filter((element) => {
-    const title = element.name.toLowerCase();
-    const { ingredients } = element;
-    const ingredientElements = ingredients.find((el) => el.ingredient.toLowerCase().includes(searchValue));
-    const desc = element.description.toLowerCase();
+  const filterBySearchArray = [];
+  for (let i = 0; i < recipesArray.length; i++) {
+    const recipe = recipesArray[i];
+    const title = recipe.name.toLowerCase();
+    const desc = recipe.description.toLowerCase();
+    const { ingredients } = recipe;
+    const ingredientElements = [];
+    for (let j = 0; j < ingredients.length; j++) {
+      const ingredient = ingredients[j].ingredient.toLowerCase();
+      if (ingredient.includes(searchValue)) {
+        ingredientElements.push(ingredients[j]);
+      }
+    }
 
     if (title.includes(searchValue)
-              || ingredientElements
+              || ingredientElements.length > 0
               || desc.includes(searchValue)
     ) {
-      return true;
+      filterBySearchArray.push(recipesArray[i]);
     }
-  });
+  }
+  return filterBySearchArray;
 }
 
 function filterByTags() {
